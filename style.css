@@ -233,3 +233,43 @@ th {
 .badge.finished {
     background-color: #4CAF50; /* Green (Leafy) */
 }
+
+/* --- Packing List --- */
+.packing-section {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid var(--deep-red); /* Nice red accent */
+}
+
+.checklist {
+    list-style: none; /* Removes standard bullet points */
+    padding: 0;
+}
+
+.checklist li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.checklist input[type="checkbox"] {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--deep-red); /* Makes the checkmark red */
+}
+
+.checklist label {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Strikethrough when checked */
+.checklist input:checked + label {
+    text-decoration: line-through;
+    color: #aaa; /* Fades the text out */
+}
