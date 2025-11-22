@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize map focused on Japan (Tokyo)
         var map = L.map('map').setView([35.6762, 139.6503], 10);
 
-        // Add OpenStreetMap tiles (Free/Open Source)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
+        // Add Esri World Street Map
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
         }).addTo(map);
 
         // Add Markers for your trip
