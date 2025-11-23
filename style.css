@@ -576,15 +576,3 @@ footer {
         text-align: center;
     }
 }
-
-/* Default (Desktop) */
-.journal-hero {
-    background-image: url('images/blog-header.png');
-}
-
-/* Mobile Swap */
-@media (max-width: 768px) {
-    .journal-hero {
-        background-image: url('images/blog-header-mobile.jpg');
-    }
-}
