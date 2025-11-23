@@ -398,8 +398,8 @@ footer {
 }
 
 .footer-col ul {
-    list-style: none;
-    padding: 0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .footer-col ul li {
