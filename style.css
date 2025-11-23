@@ -386,7 +386,8 @@ footer {
 
 .footer-col h3 {
     color: var(--sakura-pink);
-    margin-top: 0;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .footer-col h4 {
