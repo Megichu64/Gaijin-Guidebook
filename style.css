@@ -421,6 +421,7 @@ footer {
     margin-top: 10px;
     width: 100%;
     gap: 15px;
+    box-align: left;
 }
 
 .social-icons a {
