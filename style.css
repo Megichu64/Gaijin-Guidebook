@@ -576,3 +576,10 @@ footer {
         text-align: center;
     }
 }
+
+@media (max-width: 768px) {
+    .journal-hero, .post-header {
+        height: 60vh; /* Make the box taller on phones so less gets cut off */
+        background-position: center top; /* Focus on faces */
+    }
+}
