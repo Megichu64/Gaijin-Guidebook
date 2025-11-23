@@ -62,36 +62,38 @@ function playAudio(phrase) {
 }
 
 // --- 4. SCROLL TO TOP LOGIC ---
-// Get the button
 const mybutton = document.getElementById("scrollToTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+// SAFETY CHECK: Only run this code if the button actually exists on this page
+if (mybutton) {
+    window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
     }
-}
 
-// When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", function() {
-    window.scrollTo({top: 0, behavior: 'smooth'}); // 'smooth' makes it glide nicely
-});
+    mybutton.addEventListener("click", function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+}
 
 // --- 5. DARK MODE TOGGLE LOGIC ---
 const toggleButton = document.getElementById('theme-toggle');
 const body = document.body;
 
-// 1. Check if user has a saved preference
+// 1. Check if user has a saved preference (Runs immediately on load)
 if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark-mode');
-    toggleButton.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+    if (toggleButton) {
+        toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+    }
 }
 
-// 2. Listen for clicks
+// 2. Listen for clicks (Only if button exists)
 if (toggleButton) {
     toggleButton.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
