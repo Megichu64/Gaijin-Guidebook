@@ -80,3 +80,29 @@ function scrollFunction() {
 mybutton.addEventListener("click", function() {
     window.scrollTo({top: 0, behavior: 'smooth'}); // 'smooth' makes it glide nicely
 });
+
+// --- 5. DARK MODE TOGGLE LOGIC ---
+const toggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+
+// 1. Check if user has a saved preference
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleButton.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+}
+
+// 2. Listen for clicks
+if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        // Save preference and swap icon
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem('theme', 'light');
+            toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+}
