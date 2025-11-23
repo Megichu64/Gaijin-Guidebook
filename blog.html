@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Japan Journal - Gaijin Guidebook</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand">Gaijin Guidebook</a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html" style="color: var(--deep-red);">Trip Journal</a></li>
+        <li><a href="transport.html">Transport</a></li>
+        <li><a href="index.html#phrases">Phrases</a></li>
+    </ul>
+</nav>
+
+<header style="background-image: url('images/kyoto-streets.jpg'); height: 50vh;">
+    <h1>October 2024</h1>
+    <p class="subtitle">21 Days. 3 Friends. 150,000 Steps.</p>
+</header>
+
+<div class="container">
+    
+    <h2 class="section-title">The Route</h2>
+    <div id="map"></div> <h2 class="section-title">Daily Logs</h2>
+    <div class="timeline">
+        
+        <div class="timeline-container left">
+            <div class="content">
+                <h3><a href="post-day1.html">Oct 6: Arrival in Tokyo</a></h3>
+                <p>Navigating Narita, the Skyliner, and first convenience store sushi.</p>
+                <span class="badge bloom">Tokyo</span>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="content">
+                <h3><a href="#">Oct 7: Akihabara & Asakusa</a></h3>
+                <p>Senso-ji temple in the morning, Electric Town at night.</p>
+                <span class="badge bloom">Tokyo</span>
+            </div>
+        </div>
+        
+        </div>
+</div>
+
+<footer>
+    <div class="footer-bottom"><p>&copy; 2025 Gaijin Guidebook</p></div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
