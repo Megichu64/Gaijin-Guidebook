@@ -120,7 +120,11 @@ h1 { font-size: 3rem; margin-bottom: 10px; }
     width: 40px;
     height: 40px;
     cursor: pointer;
-    margin-left: 20px; /* Space it out from the links */
+    margin-left: 20px;
+    display: flex;            /* Turn on Flexbox */
+    align-items: center;      /* Center Vertically */
+    justify-content: center;  /* Center Horizontally */
+    padding: 0;               /* Remove default button padding */
 }
 
 /* --- Layout Utility --- */
@@ -356,15 +360,13 @@ footer {
 
 .footer-container {
     max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
-    /* LAYOUT MAGIC STARTS HERE */
     display: grid;
-    /* Force 3 Equal Columns */
     grid-template-columns: 1fr 1fr 1fr; 
-    /* Add specific gaps */
     gap: 40px; 
     padding: 0 20px 40px 20px;
-    text-align: left; /* Ensures text aligns neatly */
+    text-align: left;
 }
 
 .footer-col h3 {
@@ -617,5 +619,14 @@ footer {
         /* Adjust focus for faces */
         background-position: 50% 20%; 
         background-size: cover;
+    }
+    .social-icons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    .footer-container {
+        text-align: center;
+        align-items: center;
     }
 }
