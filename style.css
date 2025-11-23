@@ -1,3 +1,13 @@
+/* --- MOBILE FORMATTING --- */
+* {
+    box-sizing: border-box; /* Prevents padding from breaking layouts */
+}
+
+img {
+    max-width: 100%; /* Ensures images never overflow their container */
+    height: auto;
+}
+
 /* =========================================
    1. GLOBAL VARIABLES & RESET
    ========================================= */
@@ -512,4 +522,57 @@ footer {
 
 .gallery-grid img:hover {
     transform: scale(1.03); /* Slight zoom on hover */
+}
+/* ===========================================
+   6. MOBILE RESPONSIVENESS (Phones & Tablets)
+   =========================================== */
+@media (max-width: 768px) {
+
+    /* 1. Fix the Navigation Bar */
+    nav {
+        flex-direction: column; /* Stack logo on top of links */
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        gap: 15px; /* Smaller gap between links */
+        margin-top: 15px;
+    }
+
+    /* 2. Fix the "Hero" Headers */
+    header h1, .post-header h1, .journal-hero h1 {
+        font-size: 2rem; /* Make huge text smaller for phones */
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 10px; /* Prevent text touching screen edges */
+    }
+
+    /* 3. Fix the "Stats Bar" in Blog Posts */
+    .stats-bar {
+        flex-direction: column; /* Stack the pills vertically */
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* 4. Fix Tables (The Horizontal Scroll Trick) */
+    /* This wraps tables in a scroll bar so the WHOLE PAGE doesn't scroll */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* 5. Adjust Layout Containers */
+    .container {
+        padding: 20px 15px; /* Reduce padding on small screens */
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack footer columns */
+        text-align: center;
+    }
 }
