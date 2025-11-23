@@ -357,7 +357,9 @@ th {
     color: #aaa; /* Fades the text out */
 }
 
-/* --- FOOTER STYLES --- */
+/* =========================================
+   4. FOOTER STYLES
+   ========================================= */
 footer {
     background-color: var(--bg-footer); /* CHANGED from var(--text-dark) */
     color: white;
@@ -371,7 +373,7 @@ footer {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
-    gap: 40px; 
+    gap: 80px; 
     padding: 0 20px 40px 20px;
     text-align: left;
 }
