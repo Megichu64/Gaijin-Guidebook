@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport - Gaijin Guidebook</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#map-section">My Map</a></li>
+        <li><a href="transport.html" style="color: var(--deep-red);">Transportation</a></li>
+        <li><a href="index.html#phrases">Phrases</a></li>
+    </ul>
+</nav>
+
+<header style="height: 40vh;">
+    <h1>Getting Around</h1>
+    <p class="subtitle">Trains, Planes, and IC Cards</p>
+</header>
+
+<div class="container">
+    
+    <h2 class="section-title">JR Pass vs. IC Cards</h2>
+    <p>Should you buy the expensive rail pass? It depends on your itinerary.</p>
+    
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
+        <thead style="background-color: var(--text-dark); color: white;">
+            <tr>
+                <th style="padding: 10px;">Feature</th>
+                <th style="padding: 10px;">JR Rail Pass</th>
+                <th style="padding: 10px;">Suica / Pasmo (IC Card)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Best For</strong></td>
+                <td>Long distance travel (Tokyo -> Kyoto -> Hiroshima)</td>
+                <td>Local subways, buses, and convenience stores</td>
+            </tr>
+            <tr>
+                <td><strong>Cost</strong></td>
+                <td>High Flat Rate (~$350+)</td>
+                <td>Pay-as-you-go ($3 deposit)</td>
+            </tr>
+            <tr>
+                <td><strong>Speed</strong></td>
+                <td>Unlimited rides on JR lines</td>
+                <td>Works on ALL lines (Private & JR)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="section-title">How to Use the Gates</h2>
+    <div class="card" style="text-align: left; display: flex; align-items: center; gap: 20px;">
+        <div>
+            <h3>Tap & Go</h3>
+            <p>Most Japanese gates use IC cards. You do not need to insert a ticket unless you bought a paper one.</p>
+            <ol style="line-height: 1.6;">
+                <li>Walk to the gate with the <strong>blue light</strong> (or green arrow).</li>
+                <li>Hold your card (or phone) over the illuminated blue panel.</li>
+                <li>Listen for the "Beep!" (If it goes "Beep-beep-beep" and turns red, you are out of money).</li>
+            </ol>
+        </div>
+        
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Gaijin Guidebook</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
