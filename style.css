@@ -412,10 +412,7 @@ footer {
    ========================================= */
 /* The Journal Hero Header*/
    .journal-hero {
-    /* The Image */
     background-image: url('images/blog-header.png');
-    
-    /* The Positioning */
     height: 50vh;
     background-size: cover;   /* Ensures it covers the whole box */
     background-position: center; /* Centers the focus */
@@ -428,7 +425,7 @@ footer {
     color: white;            /* White text usually looks best on photos */
     text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
 }
-/* The Blog Post Header Area */
+/* The Blog Post Header */
 .post-header {
     height: 50vh;
     background-size: cover;
