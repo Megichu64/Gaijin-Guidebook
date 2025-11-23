@@ -425,7 +425,7 @@ footer {
     background-image: url('images/blog-header.png');
     height: 50vh;
     background-size: cover;   /* Ensures it covers the whole box */
-    background-position: center top; /* Centers the focus */
+    background-position: center; /* Centers the focus */
     
     /* Text Centering Magic (Flexbox) */
     display: flex;
@@ -577,9 +577,14 @@ footer {
     }
 }
 
+/* Default (Desktop) */
+.journal-hero {
+    background-image: url('images/blog-header.png');
+}
+
+/* Mobile Swap */
 @media (max-width: 768px) {
-    .journal-hero, .post-header {
-        height: 60vh; /* Make the box taller on phones so less gets cut off */
-        background-position: center top; /* Focus on faces */
+    .journal-hero {
+        background-image: url('images/blog-header-mobile.jpg');
     }
 }
