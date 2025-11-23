@@ -616,7 +616,7 @@ footer {
     .footer-container {
         grid-template-columns: 1fr; /* Stack footer columns */
         text-align: center;
-        gap: 30px; /* More space between stacked columns */
+        gap: 120px; /* More space between stacked columns */
     }
     
     /* Fix the Blog Header Image on Mobile */
