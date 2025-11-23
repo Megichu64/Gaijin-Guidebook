@@ -432,8 +432,8 @@ footer {
     flex-direction: column;
     justify-content: center; /* Vertical center */
     align-items: center;     /* Horizontal center */
-    color: white;            /* White text usually looks best on photos */
-    text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
+    color: #333;            /* White text usually looks best on photos */
+    text-shadow: none; /* Optional: Add shadow for better readability */
 }
 /* The Blog Post Header */
 .post-header {
