@@ -432,7 +432,7 @@ footer {
     justify-content: center; /* Vertical center */
     align-items: center;     /* Horizontal center */
     color: white;            /* White text usually looks best on photos */
-    text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
+    text-shadow: 0 6px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
 }
 /* The Blog Post Header */
 .post-header {
