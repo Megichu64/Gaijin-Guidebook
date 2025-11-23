@@ -16,16 +16,19 @@ img {
     --off-white: #f9f9f9;
     --text-dark: #333;
     
-    /* THIS WAS MISSING: Define the card color for Light Mode */
+/* Card Backgrounds */
     --bg-card: #ffffff; 
-}
+    
+    /* Footer Background (Always Dark in Light Mode) */
+    --bg-footer: #333333;}
 
-/* THIS WAS MISSING: The Dark Mode Overrides */
+/* Dark Mode Overrides */
 body.dark-mode {
-    --off-white: #1a1a1a; /* Dark Background */
+    --off-white: #121212; /* Very Dark Grey (Main BG) */
     --text-dark: #f0f0f0; /* Light Text */
-    --bg-card: #2d2d2d;   /* Dark Card Background */
+    --bg-card: #2c2c2c;   /* Dark Grey (Cards) */
     --deep-red: #ff69b4;  /* Lighter Pink for contrast */
+    --bg-footer: #000000; /* Pitch Black for Footer */
 }
 
 body {
@@ -188,7 +191,7 @@ button.convert-btn {
 .timeline-container.right { left: 50%; }
 .content {
     padding: 20px;
-    background-color: white;
+    background-color: var(--bg-card); /* CHANGED from white */
     position: relative;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -233,10 +236,14 @@ button.convert-btn {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 16px;
-    background: var(--text-dark);
+    background: var(--deep-red); /* CHANGED from var(--text-dark) */
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    transition: opacity 0.3s;
+}
+.btn:hover {
+    opacity: 0.8; /* Slight fade effect on hover */
 }
 
 /* --- Sakura Tracker Table --- */
@@ -301,7 +308,7 @@ th {
 /* --- Packing List --- */
 .packing-section {
     margin-top: 40px;
-    background: #fff;
+    background: var(--bg-card);
     padding: 20px;
     border-radius: 8px;
     border-top: 4px solid var(--deep-red); /* Nice red accent */
@@ -340,7 +347,7 @@ th {
 
 /* --- FOOTER STYLES --- */
 footer {
-    background-color: var(--text-dark); /* Dark Grey/Black */
+    background-color: var(--bg-footer); /* CHANGED from var(--text-dark) */
     color: white;
     padding-top: 40px;
     margin-top: 60px; /* Pushes footer away from content above */
