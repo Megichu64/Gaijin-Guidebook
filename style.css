@@ -121,10 +121,17 @@ h1 { font-size: 3rem; margin-bottom: 10px; }
     height: 40px;
     cursor: pointer;
     margin-left: 20px;
-    display: flex;            /* Turn on Flexbox */
-    align-items: center;      /* Center Vertically */
-    justify-content: center;  /* Center Horizontally */
-    padding: 0;               /* Remove default button padding */
+/* Flexbox Center Magic */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Crucial! */
+    transition: background-color 0.3s, color 0.3s;
+}
+#theme-toggle:hover {
+    background-color: var(--deep-red); /* Fills the circle with red */
+    color: white; /* Turns the moon/sun icon white */
+    transform: rotate(15deg); /* A cute little tilt! */
 }
 
 /* --- Layout Utility --- */
@@ -402,7 +409,10 @@ footer {
 
 /* Social Icons */
 .social-icons {
+    justify-content: center;
     display: flex;
+    margin-top: 10px;
+    width: 100%;
     gap: 15px;
 }
 
@@ -623,10 +633,5 @@ footer {
     .social-icons {
         justify-content: center;
         margin-top: 10px;
-    }
-    
-    .footer-container {
-        text-align: center;
-        align-items: center;
     }
 }
