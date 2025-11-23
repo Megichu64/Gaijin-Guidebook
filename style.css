@@ -425,7 +425,7 @@ footer {
     background-image: url('images/blog-header.png');
     height: 50vh;
     background-size: cover;   /* Ensures it covers the whole box */
-    background-position: center; /* Centers the focus */
+    background-position: center top; /* Centers the focus */
     
     /* Text Centering Magic (Flexbox) */
     display: flex;
