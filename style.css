@@ -15,6 +15,17 @@ img {
     --deep-red: #c30b4e;
     --off-white: #f9f9f9;
     --text-dark: #333;
+    
+    /* THIS WAS MISSING: Define the card color for Light Mode */
+    --bg-card: #ffffff; 
+}
+
+/* THIS WAS MISSING: The Dark Mode Overrides */
+body.dark-mode {
+    --off-white: #1a1a1a; /* Dark Background */
+    --text-dark: #f0f0f0; /* Light Text */
+    --bg-card: #2d2d2d;   /* Dark Card Background */
+    --deep-red: #ff69b4;  /* Lighter Pink for contrast */
 }
 
 body {
@@ -23,6 +34,7 @@ body {
     padding: 0;
     background-color: var(--off-white);
     color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition! */
 }
 
 /* =========================================
