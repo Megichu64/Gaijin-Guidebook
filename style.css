@@ -95,6 +95,18 @@ header {
 h1 { font-size: 3rem; margin-bottom: 10px; }
 .subtitle { font-size: 1.2rem; font-weight: 300; }
 
+/* Dark-Mode Theme Toggle Button */
+#theme-toggle {
+    background: none;
+    border: 2px solid var(--deep-red);
+    color: var(--deep-red);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 20px; /* Space it out from the links */
+}
+
 /* --- Layout Utility --- */
 .container {
     max-width: 1000px;
