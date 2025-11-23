@@ -373,7 +373,7 @@ footer {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
-    gap: 80px; 
+    gap: 120px; 
     padding: 0 20px 40px 20px;
     text-align: left;
 }
