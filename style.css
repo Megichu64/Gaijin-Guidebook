@@ -1,3 +1,6 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
 :root {
     --sakura-pink: #ffb7c5;
     --deep-red: #c30b4e;
@@ -13,7 +16,9 @@ body {
     color: var(--text-dark);
 }
 
-/* --- Navigation (Updated) --- */
+/* =========================================
+   2. NAVIGATION (Used on all pages)
+   ========================================= */
 nav {
     background: white;
     padding: 1.2rem 2rem;
@@ -67,6 +72,9 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* =========================================
+   3. HOME PAGE SPECIFIC
+   ========================================= */
 /* --- Hero Section --- */
 header {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1920&q=80');
@@ -397,4 +405,114 @@ footer {
 #scrollToTopBtn:hover {
     background-color: var(--sakura-pink);
     transform: translateY(-3px);
+}
+
+/* =========================================
+   5. BLOG POST SPECIFIC
+   ========================================= */
+/* The Journal Hero Header*/
+   .journal-hero {
+    /* The Image */
+    background-image: url('images/blog-header.png');
+    
+    /* The Positioning */
+    height: 50vh;
+    background-size: cover;   /* Ensures it covers the whole box */
+    background-position: center; /* Centers the focus */
+    
+    /* Text Centering Magic (Flexbox) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical center */
+    align-items: center;     /* Horizontal center */
+    color: white;            /* White text usually looks best on photos */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
+}
+/* The Blog Post Header Area */
+.post-header {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.blog-header {
+    background-color: var(--off-white);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    /* Optional: Add a subtle pattern or gradient here if you want */
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+/* The Stats Bar (Steps, Weather, etc.) */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between pills */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Allows them to stack on mobile phones */
+}
+
+.stat-box {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 50px; /* Makes them pill-shaped */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    color: var(--deep-red);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+/* The Main Reading Area */
+.blog-content {
+    max-width: 800px; /* Keeps lines from getting too long to read */
+    margin: 0 auto;   /* Centers the block */
+    padding: 40px 20px;
+    background: white;
+    line-height: 1.8; /* Improves readability */
+    font-size: 1.1rem;
+}
+
+/* Blog Section Headings (e.g. "Food", "Landmarks") */
+.blog-section-header {
+    color: var(--deep-red);
+    border-left: 5px solid var(--sakura-pink);
+    padding-left: 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Photo Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Prevents stretching/squishing */
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
 }

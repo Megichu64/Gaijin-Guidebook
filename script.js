@@ -1,25 +1,43 @@
 // --- 1. MAP LOGIC ---
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Check if the map element exists
-    if (document.getElementById('map')) {
-        // Initialize map focused on Japan (Tokyo)
-        var map = L.map('map').setView([35.6762, 139.6503], 10);
+    // Check if there is a map on the page
+    var mapElement = document.getElementById('map');
 
-        // --- NEW MAP STYLE: CartoDB Voyager (English + Tourism Friendly) ---
+    if (mapElement) {
+        // Initialize the map
+        var map = L.map('map').setView([35.6762, 139.6503], 6); // Zoomed out to see whole Japan
+
+        // Add the English/Tourist-friendly Tiles
         L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
             maxZoom: 20
         }).addTo(map);
 
-        // Add Markers for your trip
-        L.marker([35.6762, 139.6503]).addTo(map)
-            .bindPopup('<b>Tokyo</b><br>Started the journey here.')
-            .openPopup();
-        
-        L.marker([34.9949, 135.7850]).addTo(map)
-            .bindPopup('<b>Kiyomizu-dera</b><br>Beautiful temple views.');
+        // --- BLOG PAGE: ADD THE FULL ROUTE ---
+        // If we are on the blog page, let's draw a line connecting cities!
+        if (window.location.pathname.includes('blog.html')) {
+            
+            // Coordinates for your trip (Oct 6-24)
+            var tripPath = [
+                [35.7719, 140.3929], // Narita Airport
+                [35.6762, 139.6503], // Tokyo
+                [35.1815, 136.9066], // Nagoya (Example stop?)
+                [34.9949, 135.7850], // Kyoto
+                [34.6937, 135.5023]  // Osaka
+            ];
+
+            // Draw a red line connecting them
+            var polyline = L.polyline(tripPath, {color: '#c30b4e', weight: 4}).addTo(map);
+            
+            // Zoom the map to fit the whole trip
+            map.fitBounds(polyline.getBounds());
+        }
+
+        // --- ALWAYS ADD MARKERS ---
+        L.marker([35.6762, 139.6503]).addTo(map).bindPopup('<b>Tokyo</b><br>Oct 6 - Oct 12');
+        L.marker([34.9949, 135.7850]).addTo(map).bindPopup('<b>Kyoto</b><br>Oct 13 - Oct 18');
+        L.marker([34.6937, 135.5023]).addTo(map).bindPopup('<b>Osaka</b><br>Oct 19 - Oct 24');
     }
 });
 
