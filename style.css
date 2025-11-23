@@ -134,6 +134,12 @@ h1 { font-size: 3rem; margin-bottom: 10px; }
     transform: rotate(15deg); /* A cute little tilt! */
 }
 
+#theme-toggle i {
+    margin: 0;        /* Removes phantom side margins */
+    line-height: 0;   /* Removes vertical text spacing */
+    font-size: 1.1rem; /* Ensures it fits nicely */
+}
+
 /* --- Layout Utility --- */
 .container {
     max-width: 1000px;
@@ -373,7 +379,7 @@ footer {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
-    gap: 120px; 
+    gap: 80px; 
     padding: 0 20px 40px 20px;
     text-align: left;
 }
@@ -411,7 +417,6 @@ footer {
 
 /* Social Icons */
 .social-icons {
-    justify-content: center;
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -616,7 +621,7 @@ footer {
     .footer-container {
         grid-template-columns: 1fr; /* Stack footer columns */
         text-align: center;
-        gap: 120px; /* More space between stacked columns */
+        gap: 80px; /* More space between stacked columns */
     }
     
     /* Fix the Blog Header Image on Mobile */
