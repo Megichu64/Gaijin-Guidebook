@@ -636,7 +636,7 @@ footer {
     
     /* Fix the Blog Header Image on Mobile */
     .journal-hero {
-        /* Ensure the image is still there! */
+        /* TEST: Ensure the image is still there! */
         background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/blog-header.png');
 
         /* Force a minimum height so it doesn't collapse */
