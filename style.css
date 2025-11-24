@@ -488,7 +488,7 @@ footer {
     justify-content: center; /* Vertical center */
     align-items: center;     /* Horizontal center */
     color: white;            /* White text usually looks best on photos */
-    border: 1px solid #000000;
+    border: 1px solid #060000;
     text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* Drop shadow makes text pop! */
 }
 /* The Blog Post Header */
