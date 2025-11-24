@@ -177,20 +177,35 @@
 
 <div class="container" id="phrases">
     <h2 class="section-title">Essential Phrases</h2>
+    <div id="notebook-container" style="display:none; margin-bottom: 30px; background: #fffbe6; padding: 20px; border-radius: 8px; border-left: 5px solid #f1c40f;">
+        <h3 style="margin-top:0; color: #d35400;"><i class="fas fa-book"></i> My Phrase Notebook</h3>
+        <ul id="saved-list" style="padding-left: 20px;">
+            </ul>
+    </div>
     <div class="phrase-card">
         <div>
             <strong>Sumimasen (Excuse me)</strong><br>
             <span style="font-size: 0.9rem; color: #666;">Use this to get attention or apologize.</span>
         </div>
-        <button class="play-btn" onclick="playAudio('sumimasen')"><i class="fas fa-play"></i></button>
-    </div>
+        <div class="action-buttons">
+            <button class="save-btn" aria-label="Save phrase">
+                <i class="far fa-heart"></i>
+            </button>
+            <button class="play-btn" onclick="playAudio('sumimasen')"><i class="fas fa-play"></i>
+            </button>
+        </div>
     <div class="phrase-card">
         <div>
             <strong>Toire wa doko desu ka?</strong><br>
             <span style="font-size: 0.9rem; color: #666;">Where is the toilet?</span>
         </div>
-        <button class="play-btn" onclick="playAudio('toire')"><i class="fas fa-play"></i></button>
-    </div>
+        <div class="action-buttons">
+            <button class="save-btn" aria-label="Save phrase">
+                <i class="far fa-heart"></i>
+            </button>
+            <button class="play-btn" onclick="playAudio('toire')"><i class="fas fa-play"></i>
+            </button>
+        </div>
 </div>
 
 <footer>

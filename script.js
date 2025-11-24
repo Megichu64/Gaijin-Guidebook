@@ -140,3 +140,68 @@ if (filterButtons.length > 0) {
         });
     });
 }
+// --- 7. SAVED PHRASES (LOCAL STORAGE) ---
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const saveButtons = document.querySelectorAll('.save-btn');
+    const notebookContainer = document.getElementById('notebook-container');
+    const savedList = document.getElementById('saved-list');
+
+    // 1. Load saved phrases from LocalStorage on page load
+    let savedPhrases = JSON.parse(localStorage.getItem('mySavedPhrases')) || [];
+    updateNotebookUI();
+
+    // 2. Add Click Listeners to all Heart Buttons
+    saveButtons.forEach(btn => {
+        // Find the text for this specific card
+        // We look at the parent's parent to find the text container
+        const card = btn.closest('.phrase-card'); 
+        const phraseText = card.querySelector('strong').innerText;
+
+        // Check if this phrase is already saved (to set the heart color correctly on load)
+        if (savedPhrases.includes(phraseText)) {
+            btn.classList.add('liked');
+            btn.innerHTML = '<i class="fas fa-heart"></i>'; // Solid heart
+        }
+
+        btn.addEventListener('click', () => {
+            // Toggle the 'liked' state
+            if (savedPhrases.includes(phraseText)) {
+                // REMOVE IT
+                savedPhrases = savedPhrases.filter(p => p !== phraseText);
+                btn.classList.remove('liked');
+                btn.innerHTML = '<i class="far fa-heart"></i>'; // Empty heart
+            } else {
+                // ADD IT
+                savedPhrases.push(phraseText);
+                btn.classList.add('liked');
+                btn.innerHTML = '<i class="fas fa-heart"></i>'; // Solid heart
+            }
+
+            // Save to Browser Memory
+            localStorage.setItem('mySavedPhrases', JSON.stringify(savedPhrases));
+            
+            // Update the UI
+            updateNotebookUI();
+        });
+    });
+
+    // 3. Function to Render the Notebook List
+    function updateNotebookUI() {
+        // Clear current list
+        savedList.innerHTML = '';
+
+        if (savedPhrases.length === 0) {
+            notebookContainer.style.display = 'none'; // Hide if empty
+        } else {
+            notebookContainer.style.display = 'block'; // Show if has items
+            
+            savedPhrases.forEach(phrase => {
+                const li = document.createElement('li');
+                li.textContent = phrase;
+                li.style.marginBottom = "5px";
+                savedList.appendChild(li);
+            });
+        }
+    }
+});

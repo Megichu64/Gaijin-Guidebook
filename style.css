@@ -365,6 +365,45 @@ th {
     color: #aaa; /* Fades the text out */
 }
 
+/* --- Saved Phrases Notebook --- */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Space between the Heart and Play buttons */
+}
+
+.save-btn {
+    background: none;
+    border: 2px solid #ccc; /* Grey border by default */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ccc; /* Grey icon by default */
+    font-size: 1.1rem;
+}
+
+.save-btn:hover {
+    border-color: var(--deep-red);
+    color: var(--deep-red);
+}
+
+/* When the button has the 'liked' class, make it solid red */
+.save-btn.liked {
+    background-color: var(--deep-red);
+    border-color: var(--deep-red);
+    color: white;
+}
+
+/* Dark Mode adjustment for the Notebook yellow background */
+body.dark-mode #notebook-container {
+    background: #2c2c2c !important; /* Override the yellow */
+    border-left-color: var(--deep-red) !important;
+}
+body.dark-mode #notebook-container h3 {
+    color: var(--sakura-pink) !important;
+}
+
 /* =========================================
    4. FOOTER STYLES
    ========================================= */
