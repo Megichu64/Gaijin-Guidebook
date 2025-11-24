@@ -479,7 +479,7 @@ footer {
    ========================================= */
 /* The Journal Hero Header*/
    .journal-hero {
-    background-image: url('images/blog-header.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/blog-header.png');
     height: 50vh;
     background-size: cover;   /* Ensures it covers the whole box */
     background-position: center; /* Centers the focus */
