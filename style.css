@@ -386,6 +386,7 @@ footer {
 
 .footer-col h3 {
     color: var(--sakura-pink);
+    margin-top: 0; /* NEW: Forces it to the top */
     padding-bottom: 5px;
     margin-bottom: 15px;
     margin-right: 20px;
@@ -394,11 +395,15 @@ footer {
 .footer-col h4 {
     border-bottom: 2px solid var(--deep-red);
     display: inline-block;
+    margin-top: 0; /* NEW: Forces it to the top */
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
 
 .footer-col ul {
+    list-style: none; /* Removes the bullets */
+    padding: 0;       /* Removes the default indentation */
+    margin: 0;        /* Resets default margin */
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
