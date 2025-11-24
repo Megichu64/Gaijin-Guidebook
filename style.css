@@ -53,6 +53,8 @@ nav {
     display: flex;
     justify-content: space-between; /* Pushes logo left, links right */
     align-items: center;
+    /* NEW: Adds a safety buffer so items never touch */
+    gap: 20px;
 }
 
 .nav-brand {
@@ -479,6 +481,7 @@ footer {
    ========================================= */
 /* The Journal Hero Header*/
    .journal-hero {
+    /* The Dark Tint Overlay */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/blog-header.png');
     height: 50vh;
     background-size: cover;   /* Ensures it covers the whole box */
@@ -647,5 +650,10 @@ footer {
     .social-icons {
         justify-content: center;
         margin-top: 10px;
+    }
+    /* FIX FOR DARK MODE BUTTON ON MOBILE */
+    #theme-toggle {
+        margin-left: 0;   /* Resets the "push to right" so it centers perfectly */
+        margin-top: 20px; /* Adds breathing room between the links and the button */
     }
 }
