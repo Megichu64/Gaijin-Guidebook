@@ -477,7 +477,39 @@ footer {
 }
 
 /* =========================================
-   5. BLOG POST SPECIFIC
+   5. MAIN BLOG PAGE STYLES
+   ========================================= */
+/* --- Filter Bar Styles --- */
+.filter-bar {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--deep-red);
+    background: transparent;
+    color: var(--deep-red);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--sakura-pink);
+    color: white;
+    border-color: var(--sakura-pink);
+}
+
+.filter-btn.active {
+    background: var(--deep-red);
+    color: white;
+}
+/* =========================================
+   6. BLOG POST STYLES
    ========================================= */
 /* The Journal Hero Header*/
    .journal-hero {
@@ -607,7 +639,7 @@ footer {
     }
 }
 /* ===========================================
-   6. MOBILE RESPONSIVENESS (Phones & Tablets)
+   7. MOBILE RESPONSIVENESS (Phones & Tablets)
    =========================================== */
 @media (max-width: 768px) {
 

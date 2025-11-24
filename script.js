@@ -108,3 +108,35 @@ if (toggleButton) {
         }
     });
 }
+
+// --- 6. BLOG FILTER LOGIC ---
+const filterButtons = document.querySelectorAll('.filter-btn');
+const timelineItems = document.querySelectorAll('.timeline-container');
+
+if (filterButtons.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. Remove 'active' class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // 2. Add 'active' class to the clicked button
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            timelineItems.forEach(item => {
+                // Find the badge text inside this timeline item
+                const badge = item.querySelector('.badge');
+                if (badge) {
+                    const badgeText = badge.innerText.toLowerCase();
+
+                    // If filter is 'all' OR the badge text matches the filter
+                    if (filterValue === 'all' || badgeText.includes(filterValue)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+}
