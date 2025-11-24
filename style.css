@@ -580,6 +580,32 @@ footer {
 .gallery-grid img:hover {
     transform: scale(1.03); /* Slight zoom on hover */
 }
+
+/* --- Masonry Gallery (For the "View All" section) --- */
+.masonry-gallery {
+    column-count: 3; /* Creates 3 vertical columns */
+    column-gap: 15px;
+    margin-top: 20px;
+}
+
+.masonry-gallery img {
+    width: 100%;
+    margin-bottom: 15px; /* Space between vertical items */
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.2s;
+}
+
+.masonry-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Mobile: Switch to 1 or 2 columns so it's not tiny */
+@media (max-width: 768px) {
+    .masonry-gallery {
+        column-count: 2;
+    }
+}
 /* ===========================================
    6. MOBILE RESPONSIVENESS (Phones & Tablets)
    =========================================== */
