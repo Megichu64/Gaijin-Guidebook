@@ -82,8 +82,8 @@ nav a {
     position: relative;
 }
 
-/* The "Underline" Hover Effect */
-nav a::after {
+/* The "Underline" Hover Effect (EXCEPT for the Logo) */
+nav a:not(.nav-brand)::after {
     content: '';
     position: absolute;
     width: 0;
@@ -94,7 +94,7 @@ nav a::after {
     transition: width 0.3s;
 }
 
-nav a:hover::after {
+nav a:not(.nav-brand):hover::after {
     width: 100%;
 }
 
