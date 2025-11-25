@@ -106,7 +106,7 @@ nav a:hover::after {
 }
 
 .nav-logo {
-    height: 35px;        /* Sets a fixed height (adjust as needed) */
+    height: 50px;        /* Sets a fixed height (adjust as needed) */
     width: auto;         /* Keeps the aspect ratio correct */
 }
 
