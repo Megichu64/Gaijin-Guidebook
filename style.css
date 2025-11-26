@@ -17,7 +17,7 @@ html {
        for scrolling targets." 
        (66px for navbar + 14px breathing room)
     */
-    scroll-padding-top: 80px; 
+    scroll-padding-top: 30px; 
 }
 
    :root {
