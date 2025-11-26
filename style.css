@@ -10,7 +10,11 @@ img {
 /* =========================================
    1. GLOBAL VARIABLES & RESET
    ========================================= */
-:root {
+html {
+    scroll-behavior: smooth;
+}
+
+   :root {
     --sakura-pink: #ffb7c5;
     --deep-red: #c30b4e;
     --off-white: #f9f9f9;
