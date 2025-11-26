@@ -775,3 +775,14 @@ footer {
         margin-top: 20px; /* Adds breathing room between the links and the button */
     }
 }
+/* ===========================================
+   8. 404 PAGE STYLES
+   =========================================== */
+.lost-icon i {
+    animation: wiggle 2s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
