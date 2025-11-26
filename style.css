@@ -12,11 +12,12 @@ img {
    ========================================= */
 html {
     scroll-behavior: smooth;
-}
-
-/* Prevent sticky nav from hiding section headers */
-section, h2, .container, .section-title {
-    scroll-margin-top: 30px; /* Adjust this number to match your navbar height */
+    
+    /* This tells the browser: "The top 80px of the screen is OFF LIMITS 
+       for scrolling targets." 
+       (66px for navbar + 14px breathing room)
+    */
+    scroll-padding-top: 80px; 
 }
 
    :root {
