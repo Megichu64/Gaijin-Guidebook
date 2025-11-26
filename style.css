@@ -14,6 +14,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Prevent sticky nav from hiding section headers */
+section, h2, .container, .section-title {
+    scroll-margin-top: 100px; /* Adjust this number to match your navbar height */
+}
+
    :root {
     --sakura-pink: #ffb7c5;
     --deep-red: #c30b4e;
