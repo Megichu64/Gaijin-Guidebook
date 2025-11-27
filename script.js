@@ -162,3 +162,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// --- 7. JR PASS CALCULATOR LOGIC ---
+const JR_PASS_COST = 50000; // Hardcoded 7-day pass cost in JPY (for MVP)
+
+function calculateJRPass() {
+    const tripOptions = document.getElementById('trip-options');
+    const checkboxes = tripOptions.querySelectorAll('input[type="checkbox"]');
+    const tripTotalDisplay = document.getElementById('trip-total');
+    const verdictDisplay = document.getElementById('jr-pass-verdict');
+    let totalCost = 0;
+
+    // 1. Calculate Total Ticket Cost
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            // Use dataset to get the value from data-cost=""
+            totalCost += parseInt(checkbox.dataset.cost);
+        }
+    });
+
+    // 2. Display the Trip Total
+    tripTotalDisplay.innerText = '¥ ' + totalCost.toLocaleString('en-US');
+
+    // 3. Determine and Display the Verdict
+    if (totalCost === 0) {
+        verdictDisplay.innerText = "Select a trip to see the result!";
+        verdictDisplay.style.backgroundColor = '#e6e6e6';
+        verdictDisplay.style.color = 'var(--text-dark)';
+    } else if (totalCost >= JR_PASS_COST) {
+        verdictDisplay.innerText = `YES! You save ¥ ${(totalCost - JR_PASS_COST).toLocaleString('en-US')} by buying the JR Pass.`;
+        verdictDisplay.style.backgroundColor = '#d4edda'; // Light green
+        verdictDisplay.style.color = '#155724'; // Dark green text
+    } else {
+        verdictDisplay.innerText = `NO. You spend ¥ ${(JR_PASS_COST - totalCost).toLocaleString('en-US')} more than you need to. Just buy individual tickets.`;
+        verdictDisplay.style.backgroundColor = '#f8d7da'; // Light red
+        verdictDisplay.style.color = '#721c24'; // Dark red text
+    }
+}
