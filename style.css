@@ -198,19 +198,6 @@ button.convert-btn {
 }
 #result { font-size: 1.5rem; font-weight: bold; margin-top: 15px; color: var(--deep-red); }
 
-/* --- Wanderlog Map Embed --- */
-.wanderlog-map {
-    display: block;
-    width: 100%;
-    /* You can control height here later if you ever change your mind! */
-}
-
-.wanderlog-credits {
-    font-size: smaller;
-    margin-bottom: 8px;
-    display: none;
-}
-
 /* --- Timeline Section --- */
 .timeline {
     position: relative;
