@@ -213,11 +213,6 @@ button.convert-btn {
     /* display: none; */
 }
 
-/* --- FORMATTING: Hide Map Credits --- */
-.map-credits-hide {
-    display: none;
-}
-
 /* --- Timeline Section --- */
 .timeline {
     position: relative;
