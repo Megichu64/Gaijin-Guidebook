@@ -1,47 +1,4 @@
-// --- 1. MAP LOGIC ---
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Check if there is a map on the page
-    var mapElement = document.getElementById('map');
-
-    if (mapElement) {
-        // Initialize the map
-        var map = L.map('map').setView([35.6762, 139.6503], 6); // Zoomed out to see whole Japan
-
-        // Add the English/Tourist-friendly Tiles
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap &copy; CARTO',
-            maxZoom: 20
-        }).addTo(map);
-
-        // --- BLOG PAGE: ADD THE FULL ROUTE ---
-        // If we are on the blog page, let's draw a line connecting cities!
-        if (window.location.pathname.includes('blog.html')) {
-            
-            // Coordinates for your trip (Oct 6-24)
-            var tripPath = [
-                [35.7719, 140.3929], // Narita Airport
-                [35.6762, 139.6503], // Tokyo
-                [35.1815, 136.9066], // Nagoya (Example stop?)
-                [34.9949, 135.7850], // Kyoto
-                [34.6937, 135.5023]  // Osaka
-            ];
-
-            // Draw a red line connecting them
-            var polyline = L.polyline(tripPath, {color: '#c30b4e', weight: 4}).addTo(map);
-            
-            // Zoom the map to fit the whole trip
-            map.fitBounds(polyline.getBounds());
-        }
-
-        // --- ALWAYS ADD MARKERS ---
-        L.marker([35.6762, 139.6503]).addTo(map).bindPopup('<b>Tokyo</b><br>Oct 6 - Oct 12');
-        L.marker([34.9949, 135.7850]).addTo(map).bindPopup('<b>Kyoto</b><br>Oct 13 - Oct 18');
-        L.marker([34.6937, 135.5023]).addTo(map).bindPopup('<b>Osaka</b><br>Oct 19 - Oct 24');
-    }
-});
-
-// --- 2. CURRENCY LOGIC ---
+// --- 1. CURRENCY LOGIC ---
 function convertCurrency() {
     const usdInput = document.getElementById('usdInput');
     const resultDisplay = document.getElementById('result');
@@ -55,13 +12,13 @@ function convertCurrency() {
     }
 }
 
-// --- 3. AUDIO LOGIC ---
+// --- 2. AUDIO LOGIC ---
 function playAudio(phrase) {
     console.log("User clicked play for:", phrase);
     alert("Playing audio for: " + phrase + " (Connect actual MP3 files in the code!)");
 }
 
-// --- 4. SCROLL TO TOP LOGIC ---
+// --- 3. SCROLL TO TOP LOGIC ---
 const mybutton = document.getElementById("scrollToTopBtn");
 
 // SAFETY CHECK: Only run this code if the button actually exists on this page
@@ -81,7 +38,7 @@ if (mybutton) {
     });
 }
 
-// --- 5. DARK MODE TOGGLE LOGIC ---
+// --- 4. DARK MODE TOGGLE LOGIC ---
 const toggleButton = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -109,7 +66,7 @@ if (toggleButton) {
     });
 }
 
-// --- 6. BLOG FILTER LOGIC ---
+// --- 5. BLOG FILTER LOGIC ---
 const filterButtons = document.querySelectorAll('.filter-btn');
 const timelineItems = document.querySelectorAll('.timeline-container');
 
@@ -140,7 +97,7 @@ if (filterButtons.length > 0) {
         });
     });
 }
-// --- 7. SAVED PHRASES (LOCAL STORAGE) ---
+// --- 6. SAVED PHRASES (LOCAL STORAGE) ---
 document.addEventListener('DOMContentLoaded', () => {
     
     const saveButtons = document.querySelectorAll('.save-btn');
