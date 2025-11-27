@@ -208,6 +208,7 @@ button.convert-btn {
 .wanderlog-credits {
     font-size: smaller;
     margin-bottom: 8px;
+    display: none;
     /* Optional: Uncomment the line below if you want to hide the credits text! */
     /* display: none; */
 }
