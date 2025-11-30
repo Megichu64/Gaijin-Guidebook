@@ -634,16 +634,48 @@ footer {
     flex-wrap: wrap; /* Allows them to stack on mobile phones */
 }
 
+/* --- Stat Box Container --- */
 .stat-box {
-    background: var(--bg-card);    padding: 8px 16px;
-    border-radius: 50px; /* Makes them pill-shaped */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    background: var(--bg-card);
+    padding: 6px 16px 6px 6px; /* Less padding on left for the icon */
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* 1. Font Settings */
+    /* Uses your theme variable so it swaps from Dark Grey (Light Mode) to White (Dark Mode) */
+    color: var(--text-dark); 
     font-size: 0.9rem;
-    color: var(--deep-red);
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 10px;
+}
+
+/* --- The Icon Bubble (Global Base) --- */
+.stat-box i {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Shadow for the bubble itself so it lifts off the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    /* LIGHT MODE DEFAULT: Red Background, White Icon */
+    background-color: var(--deep-red); 
+    color: white; 
+}
+
+/* --- DARK MODE SPECIFIC FIX --- */
+/* This solves the "Black on Black" issue */
+body.dark-mode .stat-box i {
+    /* 1. Make the bubble Pink (matches your Dark Mode accent text) */
+    background-color: var(--sakura-pink); 
+    
+    /* 2. Make the icon Dark (provides distinct contrast against the pink bubble) */
+    color: var(--bg-footer); 
 }
 
 /* The Main Reading Area */
