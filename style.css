@@ -51,6 +51,19 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Smooth transition! */
 }
 
+/* 1. Default (Light Mode) Content Links */
+/* Changes the standard blue to your theme's red */
+.container a:not(.btn) {
+    color: var(--deep-red);
+    text-decoration: underline;
+}
+
+/* 2. Dark Mode Content Links */
+/* Changes links to Sakura Pink so they pop against the black background */
+body.dark-mode .container a:not(.btn) {
+    color: var(--sakura-pink);
+}
+
 /* =========================================
    2. NAVIGATION (Used on all pages)
    ========================================= */
