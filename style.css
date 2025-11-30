@@ -637,7 +637,7 @@ footer {
 .stat-box {
     background: var(--bg-card);    padding: 8px 16px;
     border-radius: 50px; /* Makes them pill-shaped */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     font-size: 0.9rem;
     color: var(--deep-red);
     font-weight: bold;
