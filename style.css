@@ -661,7 +661,7 @@ footer {
     justify-content: center;
     
     /* Shadow for the bubble itself so it lifts off the card */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     
     /* LIGHT MODE DEFAULT: Red Background, White Icon */
     background-color: var(--deep-red); 
