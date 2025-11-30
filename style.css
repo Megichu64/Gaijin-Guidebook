@@ -64,6 +64,12 @@ body.dark-mode .container a:not(.btn) {
     color: var(--sakura-pink);
 }
 
+/* Hover effect for both modes */
+.container a:not(.btn):hover {
+    opacity: 0.8;
+    text-decoration: none; /* Removes underline on hover for a clean look */
+}
+
 /* =========================================
    2. NAVIGATION (Used on all pages)
    ========================================= */
