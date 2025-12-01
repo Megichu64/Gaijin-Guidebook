@@ -639,7 +639,7 @@ footer {
     background: var(--bg-card);
     padding: 6px 16px 6px 6px; /* Less padding on left for the icon */
     border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     
     /* 1. Font Settings */
     /* Uses your theme variable so it swaps from Dark Grey (Light Mode) to White (Dark Mode) */
@@ -649,7 +649,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
+
+    transition: border-color 0.3s, color 0.3s;
 }
+
+body.dark-mode .stat-box {
+    box-shadow: 0 0 10px var(--sakura-pink);}
 
 /* --- The Icon Bubble (Global Base) --- */
 .stat-box i {
@@ -659,13 +664,12 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    /* Shadow for the bubble itself so it lifts off the card */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    
+
     /* LIGHT MODE DEFAULT: Red Background, White Icon */
     background-color: var(--deep-red); 
-    color: white; 
+    color: white;
+    /* Subtle shadow for the bubble */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* --- DARK MODE SPECIFIC FIX --- */
@@ -674,7 +678,7 @@ body.dark-mode .stat-box i {
     /* 1. Make the bubble Pink (matches your Dark Mode accent text) */
     background-color: var(--sakura-pink);
     color: var(--bg-footer);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--sakura-pink);
 }
 
 /* The Main Reading Area */
