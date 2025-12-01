@@ -42,6 +42,16 @@ body.dark-mode {
     --bg-footer: #000000; /* Pitch Black for Footer */
 }
 
+/* --- DARK MODE NEON TEXT GLOW --- */
+/* Target all the headers that are Pink/Red in Dark Mode */
+body.dark-mode .nav-brand,           
+body.dark-mode .footer-col h3 {
+    /* 1. Ensure the text is the bright pink variable */
+    color: var(--sakura-pink) !important;
+    /* 2. Add the soft neon glow */
+    text-shadow: 0 0 10px var(--sakura-pink);
+}
+
 body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
