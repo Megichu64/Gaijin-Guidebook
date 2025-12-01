@@ -674,7 +674,7 @@ body.dark-mode .stat-box i {
     /* 1. Make the bubble Pink (matches your Dark Mode accent text) */
     background-color: var(--sakura-pink);
     color: var(--bg-footer);
-    box-shadow: 0 0 10px var(--sakura-pink);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* The Main Reading Area */
