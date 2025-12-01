@@ -719,6 +719,20 @@ body.dark-mode .stat-box i {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Adds a nice lift */
 }
 
+.travel-tip {
+    background-color: var(--off-white);
+    border-left: 5px solid var(--deep-red);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-style: italic;
+}
+.travel-tip h4 {
+    margin-top: 0;
+    color: var(--deep-red);
+    font-style: normal;
+}
+
 /* Photo Grid */
 .gallery-grid {
     display: grid;
