@@ -61,21 +61,27 @@ body {
     transition: background-color 0.3s, color 0.3s; /* Smooth transition! */
 }
 
+/* =========================================
+   LINK STYLING (Updated for Blog Posts)
+   ========================================= */
 /* 1. Default (Light Mode) Content Links */
 /* Changes the standard blue to your theme's red */
-.container a:not(.btn) {
+.container a:not(.btn), 
+.blog-content a:not(.btn){
     color: var(--deep-red);
     text-decoration: underline;
 }
 
 /* 2. Dark Mode Content Links */
 /* Changes links to Sakura Pink so they pop against the black background */
-body.dark-mode .container a:not(.btn) {
+body.dark-mode .container a:not(.btn),
+body.dark-mode .blog-content a:not(.btn) {
     color: var(--sakura-pink);
 }
 
 /* Hover effect for both modes */
-.container a:not(.btn):hover {
+.container a:not(.btn):hover,
+.blog-content a:not(.btn):hover {
     opacity: 0.8;
     text-decoration: none; /* Removes underline on hover for a clean look */
 }
