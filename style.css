@@ -708,6 +708,17 @@ body.dark-mode .stat-box i {
     margin-bottom: 20px;
 }
 
+/* Formatting for vertical/portrait blog images */
+.blog-image-vertical {
+    max-width: 400px; /* Limits the width so it doesn't fill the screen */
+    width: 100%;      /* Ensures it shrinks on mobile phones */
+    height: auto;     /* Maintains aspect ratio */
+    display: block;   /* Allows us to center it */
+    margin: 30px auto; /* Centers the image with space above/below */
+    border-radius: 8px; /* Matches your other rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Adds a nice lift */
+}
+
 /* Photo Grid */
 .gallery-grid {
     display: grid;
