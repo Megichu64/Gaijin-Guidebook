@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yen Converter | Gaijin Guidebook</title>
+    <title>Phrasebook | Gaijin Guidebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,20 +27,38 @@
 
     <div class="container">
         <div style="text-align: center; margin-bottom: 40px;">
-            <h1>Currency Converter 💴</h1>
-            <p>Calculate your costs in real-time.</p>
+            <h1>Essential Phrasebook 📖</h1>
+            <p>Save the phrases you need for your trip.</p>
         </div>
 
-        <div class="converter-box" style="margin: 0 auto;">
-            <p>Enter amount in USD:</p>
-            <div class="input-group">
-                <input type="number" id="usdInput" placeholder="USD" value="1">
-            </div>
-            <button class="convert-btn" onclick="convertCurrency()">Convert to JPY</button>
-            <div id="result">¥ --</div>
-            <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">*Rate is approximate (154.50 JPY)</p>
+        <div id="notebook-container" style="display:none; margin-bottom: 30px; background: #fffbe6; padding: 20px; border-radius: 8px; border-left: 5px solid #f1c40f;">
+            <h3 style="margin-top:0; color: #d35400;"><i class="fas fa-book"></i> My Phrase Notebook</h3>
+            <ul id="saved-list" style="padding-left: 20px;"></ul>
         </div>
-    </div>
+
+        <div class="phrase-card">
+            <div>
+                <strong>Sumimasen (Excuse me)</strong><br>
+                <span style="font-size: 0.9rem; color: #666;">Use this to get attention or apologize.</span>
+            </div>
+            <div class="action-buttons">
+                <button class="save-btn" aria-label="Save phrase"><i class="far fa-heart"></i></button>
+                <button class="play-btn" onclick="playAudio('sumimasen')"><i class="fas fa-play"></i></button>
+            </div>
+        </div>
+
+        <div class="phrase-card">
+            <div>
+                <strong>Toire wa doko desu ka?</strong><br>
+                <span style="font-size: 0.9rem; color: #666;">Where is the toilet?</span>
+            </div>
+            <div class="action-buttons">
+                <button class="save-btn" aria-label="Save phrase"><i class="far fa-heart"></i></button>
+                <button class="play-btn" onclick="playAudio('toire')"><i class="fas fa-play"></i></button>
+            </div>
+        </div>
+        
+        </div>
 
     <footer>
         <div class="footer-container">
