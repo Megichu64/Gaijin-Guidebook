@@ -43,25 +43,43 @@
             <p>Plan your itinerary with the best travel app.</p>
             <a href="https://wanderlog.com/home" target="_blank" class="btn">Go to Wanderlog</a>
         </div>
+
         <div class="card">
             <i class="fas fa-wind fa-3x" style="color: var(--sakura-pink);"></i>
             <h3>Sakura Forecast</h3>
             <p>Track the yearly cherry blossom front.</p>
             <a href="https://sakura.weathermap.jp/en.php" target="_blank" class="btn">View Forecast</a>
         </div>
+
         <div class="card">
             <i class="fas fa-train fa-3x" style="color: var(--sakura-pink);"></i>
             <h3>Transport Tips</h3>
             <p>Learn how to navigate the JR Rail system.</p>
             <a href="transport.html" class="btn">Read Guide</a>
         </div>
+
         <div class="card">
             <i class="fas fa-clipboard-check fa-3x" style="color: var(--sakura-pink);"></i>
             <h3>Travel Checklist</h3>
             <p>Don't forget the essentials before you fly.</p>
             <a href="checklist.html" class="btn">Start Packing</a>
         </div>
+
+        <div class="card">
+            <i class="fas fa-yen-sign fa-3x" style="color: var(--sakura-pink);"></i>
+            <h3>Yen Converter</h3>
+            <p>Quickly calculate costs in USD/JPY.</p>
+            <a href="currency.html" class="btn">Convert Money</a>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-comment-dots fa-3x" style="color: var(--sakura-pink);"></i>
+            <h3>Phrasebook</h3>
+            <p>Essential Japanese phrases for your trip.</p>
+            <a href="phrases.html" class="btn">Learn Phrases</a>
+        </div>
     </div>
+
     <div class="sakura-tracker">
         <h3>🌸 2025 Sakura Forecast 🌸</h3>
         <p>Current status for major cities. <a href="https://sakura.weathermap.jp/en.php" target="_blank">Source</a></p>
@@ -107,54 +125,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-
-<div class="container" id="currency">
-    <h2 class="section-title">Yen Converter</h2>
-    <div class="converter-box">
-        <p>Enter amount in USD:</p>
-        <div class="input-group">
-            <input type="number" id="usdInput" placeholder="USD" value="1">
-        </div>
-        <button class="convert-btn" onclick="convertCurrency()">Convert to JPY</button>
-        <div id="result">¥ --</div>
-        <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">*Rate is approximate (154.50 JPY)</p>
-    </div>
-</div>
-
-<div class="container" id="phrases">
-    <h2 class="section-title">Essential Phrases</h2>
-    <div id="notebook-container" style="display:none; margin-bottom: 30px; background: #fffbe6; padding: 20px; border-radius: 8px; border-left: 5px solid #f1c40f;">
-        <h3 style="margin-top:0; color: #d35400;"><i class="fas fa-book"></i> My Phrase Notebook</h3>
-        <ul id="saved-list" style="padding-left: 20px;">
-            </ul>
-    </div>
-</div>
-    <div class="phrase-card">
-        <div>
-            <strong>Sumimasen (Excuse me)</strong><br>
-            <span style="font-size: 0.9rem; color: #666;">Use this to get attention or apologize.</span>
-        </div>
-        <div class="action-buttons">
-            <button class="save-btn" aria-label="Save phrase">
-                <i class="far fa-heart"></i>
-            </button>
-            <button class="play-btn" onclick="playAudio('sumimasen')"><i class="fas fa-play"></i>
-            </button>
-        </div>
-    </div>
-    <div class="phrase-card">
-        <div>
-            <strong>Toire wa doko desu ka?</strong><br>
-            <span style="font-size: 0.9rem; color: #666;">Where is the toilet?</span>
-        </div>
-        <div class="action-buttons">
-            <button class="save-btn" aria-label="Save phrase">
-                <i class="far fa-heart"></i>
-            </button>
-            <button class="play-btn" onclick="playAudio('toire')"><i class="fas fa-play"></i>
-            </button>
-        </div>
     </div>
 
 <footer>
