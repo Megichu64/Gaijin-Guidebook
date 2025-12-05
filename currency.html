@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yen Converter | Gaijin Guidebook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="images/FINAL ICON.svg" alt="Logo" class="nav-logo"> Gaijin Guidebook
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="checklist.html">Checklist</a></li>
+            <li><a href="currency.html">Currency</a></li>
+            <li><a href="phrases.html">Phrases</a></li>
+            <li><a href="blog.html">Journal</a></li> 
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1>Currency Converter</h1>
+            <p>Calculate your costs in real-time.</p>
+        </div>
+
+        <div class="converter-box" style="margin: 0 auto;">
+            <p>Enter amount in USD:</p>
+            <div class="input-group">
+                <input type="number" id="usdInput" placeholder="USD" value="1">
+            </div>
+            <button class="convert-btn" onclick="convertCurrency()">Convert to JPY</button>
+            <div id="result">¥ --</div>
+            <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">*Rate is approximate (154.50 JPY)</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Gaijin Guidebook</h3>
+                <p>Making Japan travel simple, accessible, and fun for first-time visitors.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="checklist.html">Checklist</a></li>
+                    <li><a href="currency.html">Currency</a></li>
+                    <li><a href="phrases.html">Phrases</a></li>
+                    <li><a href="blog.html">Journal</a></li> 
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Socials</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaijin Guidebook. Designed with ❤️ and 🍣.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
