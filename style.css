@@ -946,3 +946,161 @@ body.dark-mode #reset-checklist-btn:hover {
     background-color: var(--deep-red); /* Turns pink/red on hover */
     border-color: var(--deep-red);
 }
+
+/* =========================================
+   11. IMMERSIVE GLASS CAROUSEL (UPDATED)
+   ========================================= */
+.carousel {
+    position: relative;
+    /* Taller height for more impact */
+    height: 500px; 
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Deep shadow for pop */
+}
+
+.carousel-track-container {
+    height: 100%;
+    position: relative;
+    background-color: #000; /* Fallback color */
+}
+
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out; /* Slower, dreamier fade */
+    /* Center the content */
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.carousel-slide.current-slide {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* THE IMAGE: Takes up the full space now */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures it fills the box perfectly */
+    position: absolute; /* Puts it behind the text */
+    top: 0; left: 0;
+    z-index: -1;
+    /* Optional: Slight dark tint so text pops */
+    filter: brightness(0.85); 
+}
+
+/* THE GLASS OVERLAY: The modern "Card" */
+.glass-overlay {
+    background: rgba(255, 255, 255, 0.15); /* Very see-through white */
+    backdrop-filter: blur(12px);           /* The "Frost" effect */
+    -webkit-backdrop-filter: blur(12px);   /* Safari support */
+    
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white border */
+    
+    max-width: 500px; /* Width of the text box */
+    text-align: center;
+    color: white;
+    
+    /* Animation: Slide up slightly when appearing */
+    transform: translateY(20px);
+    transition: transform 0.8s ease-out;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* When the slide is active, move the card into place */
+.carousel-slide.current-slide .glass-overlay {
+    transform: translateY(0);
+}
+
+/* Text Styling inside the glass */
+.glass-overlay h3 {
+    margin-top: 0;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: white; /* Force white text */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.glass-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+}
+
+/* Buttons and Dots (Keep mostly same, just tweaked colors) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2); /* Transparent white */
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-btn:hover {
+    background: white;
+    color: var(--deep-red);
+}
+
+.btn-left { left: 20px; }
+.btn-right { right: 20px; }
+
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    border: 2px solid white;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carousel-indicator.current-slide {
+    background: white;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .carousel { height: 450px; }
+    .glass-overlay {
+        width: 85%; /* Make card wider on phone */
+        padding: 20px;
+    }
+    .glass-overlay h3 { font-size: 1.5rem; }
+}

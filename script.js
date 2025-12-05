@@ -235,3 +235,54 @@ if (checklistContainer) {
         });
     }
 }
+
+// --- 9. HOMEPAGE CAROUSEL LOGIC ---
+const track = document.querySelector('.carousel-track');
+
+// Only run if the carousel exists (so it doesn't break other pages)
+if (track) {
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('#nextBtn');
+    const prevButton = document.querySelector('#prevBtn');
+    const dotsNav = document.querySelector('.carousel-nav');
+    const dots = Array.from(dotsNav.children);
+
+    let currentIndex = 0;
+
+    // Function to update the slide display
+    const updateSlide = (index) => {
+        // 1. Remove 'current-slide' from ALL slides & dots
+        slides.forEach(slide => slide.classList.remove('current-slide'));
+        dots.forEach(dot => dot.classList.remove('current-slide'));
+
+        // 2. Add 'current-slide' to the NEW target
+        slides[index].classList.add('current-slide');
+        dots[index].classList.add('current-slide');
+    };
+
+    // Click Right (Next)
+    nextButton.addEventListener('click', () => {
+        currentIndex++;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0; // Loop back to start
+        }
+        updateSlide(currentIndex);
+    });
+
+    // Click Left (Previous)
+    prevButton.addEventListener('click', () => {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1; // Loop to end
+        }
+        updateSlide(currentIndex);
+    });
+
+    // Click on Dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateSlide(currentIndex);
+        });
+    });
+}
