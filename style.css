@@ -910,3 +910,39 @@ input:checked + label {
 #reset-checklist-btn:hover {
     background-color: var(--deep-red);
 }
+
+/* =========================================
+   10. DARK MODE FIXES (Checklist)
+   ========================================= */
+
+/* Fix 1: The Phase Headers (Phase 1, Phase 2...) 
+   In dark mode, the "Deep Red" text on "Sakura Pink" background 
+   is okay, but sometimes we want high contrast. 
+   Let's make sure the text is dark enough to read on the pink.
+*/
+body.dark-mode .category-title {
+    color: #333333; /* Forces dark grey text on the pink header */
+    font-weight: bold;
+}
+
+/* Fix 2: The Checklist Item Text
+   Ensures the list items (Passport, etc.) turn white in dark mode 
+*/
+body.dark-mode .checklist-item label {
+    color: var(--text-dark); /* Uses your white text variable */
+}
+
+/* Fix 3: The Reset Button
+   Currently, it's white text on a white background (invisible!).
+   We will make it a dark grey button with white text.
+*/
+body.dark-mode #reset-checklist-btn {
+    background-color: #444; /* Dark grey button */
+    color: white;           /* White text */
+    border: 1px solid #666; /* Subtle border */
+}
+
+body.dark-mode #reset-checklist-btn:hover {
+    background-color: var(--deep-red); /* Turns pink/red on hover */
+    border-color: var(--deep-red);
+}

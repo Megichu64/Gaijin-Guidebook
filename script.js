@@ -205,28 +205,31 @@ const checklistContainer = document.querySelector('.checklist-container');
 
 // Only run this if we are actually on the checklist page
 if (checklistContainer) {
+    // FIX 1: We define the variable here
     const checklistBoxes = checklistContainer.querySelectorAll('input[type="checkbox"]');
 
     // 1. Load saved checks from LocalStorage
-    checkboxes.forEach(box => {
+    // FIX 1: We must use 'checklistBoxes' (the name we just made), not 'checkboxes'
+    checklistBoxes.forEach(box => {
         const isChecked = localStorage.getItem(box.id) === 'true';
         box.checked = isChecked;
     });
 
     // 2. Listen for clicks to save progress
-    checkboxes.forEach(box => {
+    checklistBoxes.forEach(box => {
         box.addEventListener('change', () => {
             localStorage.setItem(box.id, box.checked);
         });
     });
 
-    // 3. Reset Button Logic (Optional, if you added the button)
-    const resetBtn = document.querySelector('button[onclick="clearChecklist()"]');
-    // Note: If you move the function to JS, remove 'onclick' from HTML and use this:
+    // 3. Reset Button Logic
+    // FIX 2: Select by the ID we added in HTML ('reset-checklist-btn')
+    const resetBtn = document.getElementById('reset-checklist-btn');
+    
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             if(confirm("Are you sure you want to uncheck everything?")) {
-                checkboxes.forEach(box => {
+                checklistBoxes.forEach(box => {
                     box.checked = false;
                     localStorage.removeItem(box.id);
                 });
