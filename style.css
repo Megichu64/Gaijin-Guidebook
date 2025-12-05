@@ -990,6 +990,8 @@ body.dark-mode #reset-checklist-btn:hover {
 }
 
 .carousel-slide.current-slide {
+    opacity: 1;          /* <--- This was missing! It makes the ghost visible again. */
+    z-index: 1;          /* <--- Ensures it sits on top */
     /* NEW - FIXES LAG: Makes it visible only when active */
     visibility: visible;
 }
