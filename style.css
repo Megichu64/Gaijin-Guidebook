@@ -373,46 +373,6 @@ th {
     background-color: #4CAF50; /* Green (Leafy) */
 }
 
-/* --- Packing List --- */
-.packing-section {
-    margin-top: 40px;
-    background: var(--bg-card);
-    padding: 20px;
-    border-radius: 8px;
-    border-top: 4px solid var(--deep-red); /* Nice red accent */
-}
-
-.checklist {
-    list-style: none; /* Removes standard bullet points */
-    padding: 0;
-}
-
-.checklist li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-}
-
-.checklist input[type="checkbox"] {
-    margin-right: 15px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: var(--deep-red); /* Makes the checkmark red */
-}
-
-.checklist label {
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-/* Strikethrough when checked */
-.checklist input:checked + label {
-    text-decoration: line-through;
-    color: #aaa; /* Fades the text out */
-}
-
 /* --- Saved Phrases Notebook --- */
 .action-buttons {
     display: flex;
@@ -872,4 +832,81 @@ body.dark-mode .stat-box i {
 @keyframes wiggle {
     0%, 100% { transform: rotate(-10deg); }
     50% { transform: rotate(10deg); }
+}
+
+/* =========================================
+   9. TRAVEL CHECKLIST STYLES
+   ========================================= */
+.checklist-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle lift */
+}
+
+/* The Category Headers (Phase 1, Phase 2...) */
+.category-title {
+    background-color: var(--sakura-pink); /* Using your variable! */
+    color: var(--deep-red);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    border-left: 5px solid var(--deep-red); /* Nice accent bar */
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.checklist-item:hover {
+    background-color: var(--off-white); /* Slight highlight on hover */
+}
+
+/* Customizing the actual Checkbox */
+input[type="checkbox"] {
+    transform: scale(1.5); 
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: var(--deep-red); /* Makes the checkmark RED instead of blue */
+}
+
+/* The Text Label */
+.checklist-item label {
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    color: var(--text-dark);
+    transition: color 0.3s;
+}
+
+/* Strikethrough effect when checked */
+input:checked + label {
+    text-decoration: line-through;
+    color: #aaa; /* Fades out the text */
+}
+
+/* Reset Button Styling */
+#reset-checklist-btn {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--text-dark);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reset-checklist-btn:hover {
+    background-color: var(--deep-red);
 }

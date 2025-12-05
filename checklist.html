@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Checklist | Gaijin Guidebook</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="images/FINAL ICON.svg" alt="Gaijin Guidebook Logo" class="nav-logo">
+            Gaijin Guidebook
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#planning">Planning</a></li>
+            <li><a href="index.html#currency">Currency</a></li>
+            <li><a href="index.html#phrases">Phrases</a></li>
+            <li><a href="blog.html">My Trip Journal</a></li> 
+        </ul>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="container">
+        <div class="checklist-container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h1>Ultimate Japan Checklist</h1>
+                <p>Your progress is saved automatically!</p>
+            </div>
+
+            <h2 class="category-title">Phase 1: The "Must-Haves"</h2>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="item-passport">
+                <label for="item-passport">Valid Passport</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-visitjapan">
+                <label for="item-visitjapan">Visit Japan Web Account (QR Codes)</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-insurance">
+                <label for="item-insurance">Travel Insurance Policy Number</label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="item-yen">
+                <label for="item-yen">Yen (Cash) - Approx ¥20,000 to start</label>
+            </div>
+
+            <h2 class="category-title">Phase 2: Essential Gear</h2>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-esim">
+                <label for="item-esim">eSIM or Pocket WiFi Ordered</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-suica">
+                <label for="item-suica">Suica/Pasmo (On Apple Wallet)</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-coinpurse">
+                <label for="item-coinpurse">Coin Purse (Critical for Japan!)</label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="item-shoes">
+                <label for="item-shoes">Slip-on Walking Shoes (Broken in)</label>
+            </div>
+            
+             <div class="checklist-item">
+                <input type="checkbox" id="item-handkerchief">
+                <label for="item-handkerchief">Small Hand Towel (Public restrooms lack towels)</label>
+            </div>
+
+            <button id="reset-checklist-btn">Reset Checklist</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Gaijin Guidebook</h3>
+                <p>Making Japan travel simple, accessible, and fun for first-time visitors.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#planning">Planning</a></li>
+                    <li><a href="index.html#currency">Currency</a></li>
+                    <li><a href="index.html#phrases">Phrases</a></li>
+                    <li><a href="blog.html">My Trip Journal</a></li> 
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Socials</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gaijin Guidebook. Designed with ❤️ and 🍣.</p>
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

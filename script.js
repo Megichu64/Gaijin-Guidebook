@@ -199,3 +199,38 @@ function calculateJRPass() {
         verdictDisplay.style.color = '#721c24'; // Dark red text
     }
 }
+
+// --- 8. TRAVEL CHECKLIST LOGIC ---
+const checklistContainer = document.querySelector('.checklist-container');
+
+// Only run this if we are actually on the checklist page
+if (checklistContainer) {
+    const checklistBoxes = checklistContainer.querySelectorAll('input[type="checkbox"]');
+
+    // 1. Load saved checks from LocalStorage
+    checkboxes.forEach(box => {
+        const isChecked = localStorage.getItem(box.id) === 'true';
+        box.checked = isChecked;
+    });
+
+    // 2. Listen for clicks to save progress
+    checkboxes.forEach(box => {
+        box.addEventListener('change', () => {
+            localStorage.setItem(box.id, box.checked);
+        });
+    });
+
+    // 3. Reset Button Logic (Optional, if you added the button)
+    const resetBtn = document.querySelector('button[onclick="clearChecklist()"]');
+    // Note: If you move the function to JS, remove 'onclick' from HTML and use this:
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            if(confirm("Are you sure you want to uncheck everything?")) {
+                checkboxes.forEach(box => {
+                    box.checked = false;
+                    localStorage.removeItem(box.id);
+                });
+            }
+        });
+    }
+}
