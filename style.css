@@ -981,16 +981,17 @@ body.dark-mode #reset-checklist-btn:hover {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out; /* Slower, dreamier fade */
-    /* Center the content */
+    /* NEW - FIXES LAG: Hides the heavy glass effect when not in use */
+    visibility: hidden; 
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
     display: flex;
     align-items: center; 
     justify-content: center;
 }
 
 .carousel-slide.current-slide {
-    opacity: 1;
-    z-index: 1;
+    /* NEW - FIXES LAG: Makes it visible only when active */
+    visibility: visible;
 }
 
 /* THE IMAGE: Takes up the full space now */
@@ -1023,6 +1024,8 @@ body.dark-mode #reset-checklist-btn:hover {
     transform: translateY(20px);
     transition: transform 0.8s ease-out;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    /* NEW - FIXES LAG: Tells the browser to use the GPU */
+    will-change: transform;
 }
 
 /* When the slide is active, move the card into place */
