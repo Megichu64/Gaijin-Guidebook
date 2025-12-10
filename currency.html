@@ -28,15 +28,26 @@
             <h1>Currency Converter 💴</h1>
             <p>Calculate your costs in real-time.</p>
         </div>
-
-        <div class="converter-box" style="margin: 0 auto;">
-            <p>Enter amount in USD:</p>
+        
+        <div class="converter-box">
+            
             <div class="input-group">
-                <input type="number" id="usdInput" placeholder="USD" value="1">
+                <label id="input-label">USD ($)</label>
+                <input type="number" id="amount-input" placeholder="Enter amount..." autofocus>
             </div>
-            <button class="convert-btn" onclick="convertCurrency()">Convert to JPY</button>
-            <div id="result">¥ --</div>
-            <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">*Rate is approximate (154.50 JPY)</p>
+
+            <button id="swap-btn" class="swap-btn" title="Switch Currency">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+
+            <div class="result-group">
+                <label id="result-label">JPY (¥)</label>
+                <div id="conversion-result" class="result-display">---</div>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: #999; margin-top: 20px; text-align: center;">
+                *Exchange rate approx. 1 USD = 154.50 JPY
+            </p>
         </div>
     </div>
 

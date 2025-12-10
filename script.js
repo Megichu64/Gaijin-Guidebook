@@ -1,15 +1,62 @@
 // --- 1. CURRENCY LOGIC ---
-function convertCurrency() {
-    const usdInput = document.getElementById('usdInput');
-    const resultDisplay = document.getElementById('result');
-    
-    if (usdInput && resultDisplay) {
-        const usd = usdInput.value;
-        // Hardcoded rate for MVP (approx 154.50)
-        const rate = 154.50; 
-        const yen = (usd * rate).toFixed(0);
-        resultDisplay.innerText = "¥ " + yen;
+// Grab elements
+const amountInput = document.getElementById('amount-input');
+const resultDisplay = document.getElementById('conversion-result');
+const swapBtn = document.getElementById('swap-btn');
+const inputLabel = document.getElementById('input-label');
+const resultLabel = document.getElementById('result-label');
+
+// Current Rate (approximate)
+const rate = 154.50; 
+let isUsdToYen = true; // State: Are we doing USD -> JPY?
+
+function convert() {
+    const amount = parseFloat(amountInput.value);
+
+    // Handle empty or invalid input
+    if (isNaN(amount) || amountInput.value === '') {
+        resultDisplay.textContent = "---";
+        return;
     }
+
+    if (isUsdToYen) {
+        // USD -> JPY (Multiplication)
+        // format: 1,000
+        const yen = (amount * rate).toLocaleString('ja-JP', { maximumFractionDigits: 0 });
+        resultDisplay.textContent = `¥${yen}`;
+    } else {
+        // JPY -> USD (Division)
+        // format: 10.50
+        const usd = (amount / rate).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        resultDisplay.textContent = `${usd}`;
+    }
+}
+
+// Event: Click Swap Button
+if (swapBtn) {
+    swapBtn.addEventListener('click', () => {
+        // 1. Toggle state
+        isUsdToYen = !isUsdToYen;
+        
+        // 2. Rotate text labels
+        if (isUsdToYen) {
+            inputLabel.textContent = "USD ($)";
+            resultLabel.textContent = "JPY (¥)";
+            amountInput.placeholder = "Enter dollars...";
+        } else {
+            inputLabel.textContent = "JPY (¥)";
+            resultLabel.textContent = "USD ($)";
+            amountInput.placeholder = "Enter yen...";
+        }
+
+        // 3. Clear result to avoid confusion or re-calculate immediately
+        convert(); 
+    });
+}
+
+// Event: Type in the box
+if (amountInput) {
+    amountInput.addEventListener('input', convert);
 }
 
 // --- 2. AUDIO LOGIC ---
