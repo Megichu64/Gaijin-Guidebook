@@ -961,33 +961,37 @@ body.dark-mode .stat-box i {
 }
 
 /* 2. The Top Row (Checkbox + Text + Arrow) */
+/* 2. The Top Row (Checkbox + Text + Arrow) */
 .item-header {
     display: flex;
-    align-items: center;
+    align-items: center; /* Aligns them vertically in the center */
     width: 100%;
-    gap: 12px;
+    gap: 10px; /* Controls the space between Checkbox, Text, and Arrow */
 }
 
 .item-header label {
-    flex-grow: 1; /* Pushes the button to the far right */
+    /* REMOVED: flex-grow: 1; -> This stops pushing the arrow away */
     cursor: pointer;
     font-weight: 500;
     font-size: 1.05rem;
+    line-height: 1.4; /* Improves readability if text wraps */
 }
 
-/* 3. The Toggle Button (Arrow) */
+/* Optional: Make the arrow slightly smaller/subtle since it's closer now */
 .toggle-btn {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--deep-red);
-    font-size: 0.9rem;
+    color: #999; /* Softer grey so it doesn't distract */
+    font-size: 0.8rem; /* Slightly smaller */
     padding: 5px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s;
+    margin-top: 2px; /* Micro-adjustment to align perfectly with text */
 }
 
 .toggle-btn:hover {
-    color: var(--sakura-pink);
+    color: var(--deep-red);
+    background-color: transparent;
 }
 
 /* 4. THE MAGIC: Hiding the Details */
