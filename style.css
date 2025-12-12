@@ -1512,3 +1512,39 @@ body.dark-mode #reset-checklist-btn:hover {
     background-color: var(--off-white);
     color: #666;
 }
+/* =========================================
+   JR CALCULATOR DARK MODE FIXES
+   ========================================= */
+
+/* 1. DEFAULT (Light Mode) Selected State */
+.calc-row.selected {
+    border-color: var(--deep-red);
+    background-color: #fff5f8; /* The original Light Pink */
+}
+
+/* 2. DARK MODE OVERRIDES */
+body.dark-mode .calc-row {
+    background-color: #1f1f1f; /* Dark background for rows */
+    border: 1px solid #333;
+}
+
+body.dark-mode .calc-row:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+/* Make the price grey text readable */
+body.dark-mode .route-price {
+    color: #bbb; 
+}
+
+/* THE FIX: When selected in Dark Mode, use Dark Red, not Pink */
+body.dark-mode .calc-row.selected {
+    background-color: rgba(195, 11, 78, 0.25); /* Transparent Deep Red */
+    border-color: var(--deep-red);
+}
+
+/* Fix the "VS" circle in dark mode */
+body.dark-mode .vs-badge {
+    background-color: #444;
+    color: #ddd;
+}

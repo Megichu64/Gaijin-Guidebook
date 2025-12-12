@@ -164,47 +164,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- 7. JR PASS CALCULATOR LOGIC ---
-/* =========================================
-   JR PASS CALCULATOR LOGIC
-   ========================================= */
 function calculateJRPass() {
-    // 1. Get all the checkboxes
     const checkboxes = document.querySelectorAll('.calc-row input[type="checkbox"]');
     let totalCost = 0;
-    const jrPassPrice = 50000; // Current price for 7-day pass
+    const jrPassPrice = 50000; 
 
-    // 2. Loop through them to see which are checked
     checkboxes.forEach(box => {
+        // Find the parent row 
+        const row = box.closest('.calc-row');
+        
+        // RESET any inline styles from the old version
+        row.style.backgroundColor = ""; 
+        row.style.borderColor = "";
+
         if (box.checked) {
-            // Add the value (we stored the price in the 'value' attribute)
             totalCost += parseInt(box.value);
-            
-            // Visual Polish: Highlight the row
-            box.closest('.calc-row').style.borderColor = "var(--deep-red)";
-            box.closest('.calc-row').style.backgroundColor = "#fff5f8";
+            // Instead of setting colors here, we just add a class name
+            row.classList.add('selected');
         } else {
-            // Reset style if unchecked
-            box.closest('.calc-row').style.borderColor = "transparent";
-            box.closest('.calc-row').style.backgroundColor = "var(--off-white)";
+            row.classList.remove('selected');
         }
     });
 
-    // 3. Update the Total Display
+    // Update Totals
     document.getElementById('trip-total').innerText = "¥" + totalCost.toLocaleString();
-
-    // 4. Update the Verdict Box
     const verdictBox = document.getElementById('jr-pass-verdict');
     
     if (totalCost === 0) {
         verdictBox.className = "verdict-banner verdict-neutral";
         verdictBox.innerText = "Select a trip to see the result!";
     } else if (totalCost > jrPassPrice) {
-        // You save money!
         const savings = totalCost - jrPassPrice;
         verdictBox.className = "verdict-banner verdict-worth-it";
         verdictBox.innerHTML = `YES! You save <span style="font-size:1.2em">¥${savings.toLocaleString()}</span>!`;
     } else {
-        // You lose money
         const loss = jrPassPrice - totalCost;
         verdictBox.className = "verdict-banner verdict-waste";
         verdictBox.innerText = `NO. You would lose ¥${loss.toLocaleString()}.`;
