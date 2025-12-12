@@ -737,6 +737,7 @@ body.dark-mode .stat-box i {
 .blog-image-vertical {
     max-width: 400px; /* Limits the width so it doesn't fill the screen */
     width: 100%;      /* Ensures it shrinks on mobile phones */
+    max-height: 550px; /* Prevents it from being too tall */
     height: auto;     /* Maintains aspect ratio */
     display: block;   /* Allows us to center it */
     margin: 30px auto; /* Centers the image with space above/below */
