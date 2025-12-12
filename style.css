@@ -953,13 +953,20 @@ body.dark-mode .stat-box i {
 /* 1. The Container for each Item */
 .checklist-item.accordion {
     display: flex;
-    flex-direction: column; /* Stacks the header above the details */
+    flex-direction: column; 
     align-items: flex-start;
     padding: 10px 15px;
-    border-bottom: 1px solid #eee;
+    
+    /* LIGHT MODE: Make it darker (#ccc) so you can actually see it */
+    border-bottom: 1px solid #ccc; 
+    
     transition: background-color 0.2s;
 }
 
+/* DARK MODE: Keep it light (#444 or #555) so it doesn't vanish on black */
+body.dark-mode .checklist-item.accordion {
+    border-bottom: 1px solid #555;
+}
 /* 2. The Top Row (Checkbox + Text + Arrow) */
 /* 2. The Top Row (Checkbox + Text + Arrow) */
 .item-header {
@@ -1037,6 +1044,15 @@ body.dark-mode .item-details p {
 body.dark-mode .toggle-btn {
     color: var(--sakura-pink);
 }
+/* LIGHT MODE (Default) Category Headers */
+.category-title {
+    color: var(--deep-red);       /* Strong red text */
+    border-bottom: 2px solid #ddd;/* Subtle grey line underneath */
+    padding-bottom: 8px;          /* Space between text and line */
+    margin-top: 40px;             /* Breathing room above */
+    font-size: 1.5rem;            /* Make it slightly larger */
+    letter-spacing: 0.5px;        /* Slightly wider text for elegance */
+}
 /* =========================================
    10. DARK MODE FIXES (Checklist)
    ========================================= */
@@ -1046,9 +1062,13 @@ body.dark-mode .toggle-btn {
    is okay, but sometimes we want high contrast. 
    Let's make sure the text is dark enough to read on the pink.
 */
+/* ... WITH THIS NEW BLOCK */
 body.dark-mode .category-title {
-    color: #333333; /* Forces dark grey text on the pink header */
-    font-weight: bold;
+    color: var(--sakura-pink) !important; /* Bright Pink Text */
+    border-bottom: 2px solid var(--deep-red); /* Adds a line underneath */
+    padding-bottom: 8px;       /* Spacing between text and line */
+    margin-top: 40px;          /* Extra breathing room above the header */
+    text-shadow: 0 0 8px rgba(255, 183, 197, 0.3); /* Subtle neon glow */
 }
 
 /* Fix 2: The Checklist Item Text
