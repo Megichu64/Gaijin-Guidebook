@@ -282,7 +282,6 @@ if (checklistContainer) {
         });
     }
 }
-
 // --- 9. HOMEPAGE CAROUSEL LOGIC ---
 const track = document.querySelector('.carousel-track');
 
@@ -335,7 +334,6 @@ if (track) {
 }
 // --- 10. LIGHTBOX LOGIC FOR BLOG IMAGES ---
 // LIGHTBOX FUNCTIONALITY
-
 // Get the lightbox elements
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -361,5 +359,24 @@ closeBtn.addEventListener('click', () => {
 lightbox.addEventListener('click', (e) => {
     if (e.target !== lightboxImg) {
         lightbox.style.display = "none";
+    }
+});
+// --- 11. ACCORDION LOGIC FOR CHECKLIST ITEMS ---
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all the arrow buttons
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+    // Only run this code if we actually found buttons (i.e., we are on the Checklist page)
+    if (toggleButtons.length > 0) {
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Prevents the click from triggering anything else
+                e.stopPropagation();
+                
+                // Find the parent item and toggle the "active" class
+                const item = button.closest('.accordion');
+                item.classList.toggle('active');
+            });
+        });
     }
 });

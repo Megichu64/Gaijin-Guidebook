@@ -950,80 +950,89 @@ body.dark-mode .stat-box i {
 /* =========================================
    9. TRAVEL CHECKLIST STYLES
    ========================================= */
-.checklist-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: var(--bg-card);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle lift */
-}
-
-/* The Category Headers (Phase 1, Phase 2...) */
-.category-title {
-    background-color: var(--sakura-pink); /* Using your variable! */
-    color: var(--deep-red);
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-top: 30px;
-    font-size: 1.2rem;
-    border-left: 5px solid var(--deep-red); /* Nice accent bar */
-}
-
-.checklist-item {
+/* 1. The Container for each Item */
+.checklist-item.accordion {
     display: flex;
-    align-items: center;
-    padding: 12px 10px;
+    flex-direction: column; /* Stacks the header above the details */
+    align-items: flex-start;
+    padding: 10px 15px;
     border-bottom: 1px solid #eee;
     transition: background-color 0.2s;
 }
 
-.checklist-item:hover {
-    background-color: var(--off-white); /* Slight highlight on hover */
-}
-
-/* Customizing the actual Checkbox */
-input[type="checkbox"] {
-    transform: scale(1.5); 
-    margin-right: 15px;
-    cursor: pointer;
-    accent-color: var(--deep-red); /* Makes the checkmark RED instead of blue */
-}
-
-/* The Text Label */
-.checklist-item label {
-    font-size: 1.1rem;
-    cursor: pointer;
+/* 2. The Top Row (Checkbox + Text + Arrow) */
+.item-header {
+    display: flex;
+    align-items: center;
     width: 100%;
-    color: var(--text-dark);
-    transition: color 0.3s;
+    gap: 12px;
 }
 
-/* Strikethrough effect when checked */
-input:checked + label {
-    text-decoration: line-through;
-    color: #aaa; /* Fades out the text */
+.item-header label {
+    flex-grow: 1; /* Pushes the button to the far right */
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.05rem;
 }
 
-/* Reset Button Styling */
-#reset-checklist-btn {
-    display: block;
-    width: 100%;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: var(--text-dark);
-    color: white;
+/* 3. The Toggle Button (Arrow) */
+.toggle-btn {
+    background: none;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: var(--deep-red);
+    font-size: 0.9rem;
+    padding: 5px;
+    transition: transform 0.3s ease;
 }
 
-#reset-checklist-btn:hover {
-    background-color: var(--deep-red);
+.toggle-btn:hover {
+    color: var(--sakura-pink);
 }
 
+/* 4. THE MAGIC: Hiding the Details */
+.item-details {
+    max-height: 0;       /* Start with height 0 (invisible) */
+    overflow: hidden;    /* Cut off anything that sticks out */
+    width: 100%;
+    margin-left: 30px;   /* Indent to align with text */
+    opacity: 0;          /* Make it fully transparent */
+    transition: all 0.3s ease-in-out; /* Animate the opening */
+}
+
+.item-details p {
+    margin: 10px 0 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    background-color: #fafafa;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid var(--deep-red);
+}
+
+/* 5. ACTIVE STATE (When you click the arrow) */
+/* The Javascript adds the class 'active', and this CSS makes it expand */
+.accordion.active .item-details {
+    max-height: 200px; /* Expands to show the text */
+    opacity: 1;        /* Fades in */
+    margin-top: 5px;
+}
+
+.accordion.active .toggle-btn {
+    transform: rotate(180deg); /* Flips the arrow upside down */
+}
+
+/* Dark Mode Support */
+body.dark-mode .item-details p {
+    background-color: #333;
+    color: #ccc;
+    border-left-color: var(--sakura-pink);
+}
+
+body.dark-mode .toggle-btn {
+    color: var(--sakura-pink);
+}
 /* =========================================
    10. DARK MODE FIXES (Checklist)
    ========================================= */
