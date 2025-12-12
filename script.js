@@ -164,36 +164,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- 7. JR PASS CALCULATOR LOGIC ---
-const JR_PASS_COST = 50000; 
+/* =========================================
+   JR PASS CALCULATOR LOGIC
+   ========================================= */
 function calculateJRPass() {
-    const tripOptions = document.getElementById('trip-options');
-    if (!tripOptions) return; // Safety check
-    
-    const checkboxes = tripOptions.querySelectorAll('input[type="checkbox"]');
-    const tripTotalDisplay = document.getElementById('trip-total');
-    const verdictDisplay = document.getElementById('jr-pass-verdict');
+    // 1. Get all the checkboxes
+    const checkboxes = document.querySelectorAll('.calc-row input[type="checkbox"]');
     let totalCost = 0;
+    const jrPassPrice = 50000; // Current price for 7-day pass
 
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            totalCost += parseInt(checkbox.dataset.cost);
+    // 2. Loop through them to see which are checked
+    checkboxes.forEach(box => {
+        if (box.checked) {
+            // Add the value (we stored the price in the 'value' attribute)
+            totalCost += parseInt(box.value);
+            
+            // Visual Polish: Highlight the row
+            box.closest('.calc-row').style.borderColor = "var(--deep-red)";
+            box.closest('.calc-row').style.backgroundColor = "#fff5f8";
+        } else {
+            // Reset style if unchecked
+            box.closest('.calc-row').style.borderColor = "transparent";
+            box.closest('.calc-row').style.backgroundColor = "var(--off-white)";
         }
     });
 
-    tripTotalDisplay.innerText = '¥ ' + totalCost.toLocaleString('en-US');
+    // 3. Update the Total Display
+    document.getElementById('trip-total').innerText = "¥" + totalCost.toLocaleString();
 
+    // 4. Update the Verdict Box
+    const verdictBox = document.getElementById('jr-pass-verdict');
+    
     if (totalCost === 0) {
-        verdictDisplay.innerText = "Select a trip to see the result!";
-        verdictDisplay.style.backgroundColor = '#e6e6e6';
-        verdictDisplay.style.color = 'var(--text-dark)';
-    } else if (totalCost >= JR_PASS_COST) {
-        verdictDisplay.innerText = `YES! You save ¥ ${(totalCost - JR_PASS_COST).toLocaleString('en-US')} by buying the JR Pass.`;
-        verdictDisplay.style.backgroundColor = '#d4edda'; 
-        verdictDisplay.style.color = '#155724'; 
+        verdictBox.className = "verdict-banner verdict-neutral";
+        verdictBox.innerText = "Select a trip to see the result!";
+    } else if (totalCost > jrPassPrice) {
+        // You save money!
+        const savings = totalCost - jrPassPrice;
+        verdictBox.className = "verdict-banner verdict-worth-it";
+        verdictBox.innerHTML = `YES! You save <span style="font-size:1.2em">¥${savings.toLocaleString()}</span>!`;
     } else {
-        verdictDisplay.innerText = `NO. You spend ¥ ${(JR_PASS_COST - totalCost).toLocaleString('en-US')} more than you need to. Just buy individual tickets.`;
-        verdictDisplay.style.backgroundColor = '#f8d7da'; 
-        verdictDisplay.style.color = '#721c24'; 
+        // You lose money
+        const loss = jrPassPrice - totalCost;
+        verdictBox.className = "verdict-banner verdict-waste";
+        verdictBox.innerText = `NO. You would lose ¥${loss.toLocaleString()}.`;
     }
 }
 
