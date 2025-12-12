@@ -1366,3 +1366,149 @@ body.dark-mode #reset-checklist-btn:hover {
     }
     .glass-overlay h3 { font-size: 1.5rem; }
 }
+
+/* =========================================
+   12. TRANSPORTATION PAGE STYLES
+   ========================================= */
+
+/* 1. The Transport Hero Header */
+.transport-hero {
+    /* Update with a train image URL if you have one! */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555881400-74d7acaacd81?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    margin-bottom: 40px;
+}
+
+/* 2. The Calculator Card (Redesign) */
+.calculator-card {
+    background: var(--bg-card);
+    max-width: 600px; /* Wider than before */
+    margin: 0 auto 50px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--deep-red); /* Branding color */
+}
+
+/* The List of Routes */
+.calc-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Individual Route Row (Look like tickets!) */
+.calc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--off-white);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.calc-row:hover {
+    background: #e8e8e8;
+    transform: translateY(-2px);
+}
+
+/* When a box is checked, highlight the row */
+.calc-row:has(input:checked) {
+    border-color: var(--deep-red);
+    background: #fff5f8; /* Very light pink */
+}
+
+.calc-row input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--deep-red);
+    margin-right: 15px;
+}
+
+.route-info {
+    flex-grow: 1;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.route-price {
+    color: #666;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+/* The Results Section (Side-by-Side) */
+.calc-results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #ddd;
+}
+
+.result-box {
+    text-align: center;
+    flex: 1;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.result-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-top: 5px;
+}
+
+.vs-badge {
+    background: #ddd;
+    color: #666;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0 15px;
+}
+
+/* The Final Verdict Box */
+.verdict-banner {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+/* Dynamic Classes for JS to use later */
+.verdict-worth-it {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.verdict-waste {
+    background-color: var(--bg-footer); /* Grey */
+    color: white;
+}
+.verdict-neutral {
+    background-color: var(--off-white);
+    color: #666;
+}

@@ -27,48 +27,60 @@
     </button>
 </nav>
 
-<header style="height: 40vh;">
+<header class="transport-hero" style="background-image: url('images/transport-header.webp');">
     <h1>Getting Around</h1>
     <p class="subtitle">Trains, Planes, and IC Cards</p>
 </header>
 
 <div class="container">
-    
     <h2 class="section-title">Should I Buy the JR Pass?</h2>
-    <p>Check the boxes below for the Shinkansen routes you plan to take. We'll tell you if the pass is worth the cost!</p>
+    <p>The 7-Day JR Pass costs about <strong>¥50,000</strong>. Select your planned long-distance trips below to see if it saves you money.</p>
 
-    <div class="converter-box" id="jr-pass-calculator">
-        <h3 style="margin-top: 0; color: var(--deep-red);">Select Your Long-Distance Trips</h3>
+    <div class="calculator-card" id="jr-pass-calculator">
+        <h3 style="text-align: center; color: var(--deep-red); margin-bottom: 20px;">Trip Calculator</h3>
         
-        <ul class="checklist" id="trip-options" style="text-align: left; max-width: 300px; margin: 0 auto 20px;">
-            <li>
-                <input type="checkbox" id="tokyo-kyoto" data-cost="13970" onclick="calculateJRPass()">
-                <label for="tokyo-kyoto">Tokyo ↔ Kyoto</label>
-            </li>
-            <li>
-                <input type="checkbox" id="tokyo-osaka" data-cost="14520" onclick="calculateJRPass()">
-                <label for="tokyo-osaka">Tokyo ↔ Osaka</label>
-            </li>
-            <li>
-                <input type="checkbox" id="kyoto-hiroshima" data-cost="10830" onclick="calculateJRPass()">
-                <label for="kyoto-hiroshima">Kyoto ↔ Hiroshima</label>
-            </li>
-            <li>
-                <input type="checkbox" id="tokyo-hokkaido" data-cost="28000" onclick="calculateJRPass()">
-                <label for="tokyo-hokkaido">Tokyo ↔ Hokkaido (Sapporo)</label>
-            </li>
-        </ul>
+        <div class="calc-options">
+            <label class="calc-row">
+                <input type="checkbox" id="tokyo-kyoto" value="13970" onclick="calculateJRPass()">
+                <span class="route-info">Tokyo ↔ Kyoto</span>
+                <span class="route-price">¥13,970</span>
+            </label>
 
-        <div style="border-top: 1px solid #ddd; padding-top: 15px;">
-            <p style="font-weight: 500;">Your Total Shinkansen Cost:</p>
-            <div id="trip-total" style="font-size: 1.8rem; font-weight: bold; color: var(--text-dark);">¥ 0</div>
-            
-            <p style="font-weight: 500;">7-Day JR Pass Cost (Approx.):</p>
-            <div id="pass-cost" style="font-size: 1.8rem; font-weight: bold; color: #4CAF50;">¥ 50,000</div>
+            <label class="calc-row">
+                <input type="checkbox" id="tokyo-osaka" value="14520" onclick="calculateJRPass()">
+                <span class="route-info">Tokyo ↔ Osaka</span>
+                <span class="route-price">¥14,520</span>
+            </label>
 
-            <div id="jr-pass-verdict" style="margin-top: 20px; padding: 15px; border-radius: 4px; font-weight: bold; background: #e6e6e6; color: var(--text-dark);">
-                Select a trip to see the result!
+            <label class="calc-row">
+                <input type="checkbox" id="kyoto-hiroshima" value="10830" onclick="calculateJRPass()">
+                <span class="route-info">Kyoto ↔ Hiroshima</span>
+                <span class="route-price">¥10,830</span>
+            </label>
+
+            <label class="calc-row">
+                <input type="checkbox" id="tokyo-hokkaido" value="28000" onclick="calculateJRPass()">
+                <span class="route-info">Tokyo ↔ Sapporo</span>
+                <span class="route-price">¥28,000</span>
+            </label>
+        </div>
+
+        <div class="calc-results">
+            <div class="result-box">
+                <div class="result-label">Your Cost</div>
+                <div class="result-value" id="trip-total">¥0</div>
             </div>
+            
+            <div class="vs-badge">VS</div>
+
+            <div class="result-box">
+                <div class="result-label">JR Pass Cost</div>
+                <div class="result-value" style="color: var(--deep-red);">¥50k</div>
+            </div>
+        </div>
+
+        <div id="jr-pass-verdict" class="verdict-banner verdict-neutral">
+            Select a trip to see the result!
         </div>
     </div>
 </div>
