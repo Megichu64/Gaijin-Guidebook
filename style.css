@@ -20,26 +20,31 @@ html {
     scroll-padding-top: 30px; 
 }
 
-   :root {
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+    /* LIGHT MODE BACKGROUND: 
+       We make this a cool grey (#eef2f5) so the white paper pops against it. */
+    --off-white: #eef2f5;
+    
     --sakura-pink: #ffb7c5;
     --deep-red: #c30b4e;
-    --off-white: #f9f9f9;
     --text-dark: #333;
-    
-/* Card Backgrounds */
     --bg-card: #ffffff; 
-    
-    /* Footer Background (Always Dark in Light Mode) */
     --bg-footer: #333333;
 }
 
-/* Dark Mode Overrides */
+/* DARK MODE VARIABLES */
 body.dark-mode {
-    --off-white: #121212; /* Very Dark Grey (Main BG) */
-    --text-dark: #f0f0f0; /* Light Text */
-    --bg-card: #2c2c2c;   /* Dark Grey (Cards) */
-    --deep-red: #ff69b4;  /* Lighter Pink for contrast */
-    --bg-footer: #000000; /* Pitch Black for Footer */
+    /* DARK MODE BACKGROUND: 
+       We keep this pitch black (#121212) so the whole site feels dark. */
+    --off-white: #121212; 
+    
+    --text-dark: #f0f0f0;
+    --bg-card: #2c2c2c;
+    --deep-red: #ff69b4;
+    --bg-footer: #000000;
 }
 
 /* --- DARK MODE NEON TEXT GLOW --- */
@@ -56,11 +61,13 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--off-white);
+    
+    /* CRITICAL: Use the variable so it switches automatically! */
+    background-color: var(--off-white); 
+    
     color: var(--text-dark);
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition! */
+    transition: background-color 0.3s, color 0.3s;
 }
-
 /* =========================================
    LINK STYLING (Updated for Blog Posts)
    ========================================= */
@@ -1092,7 +1099,58 @@ body.dark-mode #reset-checklist-btn:hover {
     background-color: var(--deep-red); /* Turns pink/red on hover */
     border-color: var(--deep-red);
 }
+/* =========================================
+   THE "SHEET OF PAPER" LOOK
+   ========================================= */
+.checklist-container {
+    background-color: #ffffff; /* Crisp White Paper */
+    max-width: 750px;          /* Width of a standard paper sheet */
+    margin: 40px auto;         /* Centers the paper on the desk (screen) */
+    
+    /* The "Margins" of the paper */
+    padding: 60px 80px;        
+    
+    /* The "Lift" - Makes it look 3D */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+    
+    border-radius: 4px;        /* Very slightly rounded corners (like real paper) */
+    position: relative;        /* Setup for potential future decorations */
+}
 
+/* MOBILE FIX: Real paper margins are too big for phones! */
+@media (max-width: 768px) {
+    .checklist-container {
+        padding: 30px 20px; /* Reduce padding significantly on mobile */
+        margin: 20px auto;
+        width: 95%;         /* Take up most of the screen width */
+    }
+}
+
+/* DARK MODE: "Neon Slate" Look */
+body.dark-mode .checklist-container {
+    /* 1. Background: Keep the dark slate */
+    background-color: #1e1e1e; 
+    
+    /* 2. Border: Switch to Sakura Pink so the edge source is bright */
+    border: 1px solid var(--sakura-pink);
+    
+    /* 3. THE GLOW: Two layers of shadow to create the neon effect 
+       - Layer 1 (5px): Tight, bright light right on the edge
+       - Layer 2 (20px): Soft, ambient light fading out
+    */
+    box-shadow: 0 0 5px var(--sakura-pink), 
+                0 0 20px rgba(255, 183, 197, 0.4); 
+    
+    /* 4. Text Color */
+    color: #e0e0e0;
+}
+
+/* Fix for the "Details" box in Dark Mode so it blends in */
+body.dark-mode .item-details p {
+    background-color: #252525; /* Slightly lighter than the paper */
+    color: #ccc;
+    border-left: 3px solid var(--sakura-pink);
+}
 /* =========================================
    11. IMMERSIVE GLASS CAROUSEL (UPDATED)
    ========================================= */
