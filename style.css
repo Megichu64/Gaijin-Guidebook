@@ -719,7 +719,7 @@ body.dark-mode .stat-box i {
 .blog-content {
     max-width: 800px; /* Keeps lines from getting too long to read */
     margin: 0 auto;   /* Centers the block */
-    padding: 40px 20px;
+    padding: 30px 20px;
     background: var(--bg-card);    line-height: 1.8; /* Improves readability */
     font-size: 1.1rem;
 }
