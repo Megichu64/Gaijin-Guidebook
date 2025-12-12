@@ -1152,6 +1152,58 @@ body.dark-mode .item-details p {
     border-left: 3px solid var(--sakura-pink);
 }
 /* =========================================
+   MODERN RESET BUTTON
+   ========================================= */
+#reset-checklist-btn {
+    display: block;
+    width: 100%;
+    max-width: 250px;       /* Keeps it from getting too wide */
+    margin: 40px auto 0;    /* Centers it and adds space above */
+    
+    padding: 12px 30px;     /* Nice roomy internal spacing */
+    
+    /* THE MODERN LOOK */
+    background-color: transparent; 
+    border: 2px solid var(--deep-red);
+    color: var(--deep-red);
+    
+    border-radius: 50px;    /* The "Pill Shape" (No more angular corners!) */
+    
+    font-size: 0.9rem;
+    font-weight: 700;       /* Bold text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    
+    /* Smooth Animation */
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect (Light Mode) */
+#reset-checklist-btn:hover {
+    background-color: var(--deep-red);
+    color: white;
+    transform: translateY(-2px); /* Slight lift up */
+    box-shadow: 0 5px 15px rgba(195, 11, 78, 0.3); /* Soft shadow below */
+}
+
+/* --- DARK MODE VERSION --- */
+body.dark-mode #reset-checklist-btn {
+    border-color: var(--sakura-pink); /* Switch to Neon Pink */
+    color: var(--sakura-pink);
+    background-color: transparent;
+}
+
+/* Hover Effect (Dark Mode) */
+body.dark-mode #reset-checklist-btn:hover {
+    background-color: var(--sakura-pink);
+    color: #1e1e1e; /* Dark text on the bright pink button */
+    border-color: var(--sakura-pink);
+    
+    /* The Neon Glow */
+    box-shadow: 0 0 20px var(--sakura-pink);
+}
+/* =========================================
    11. IMMERSIVE GLASS CAROUSEL (UPDATED)
    ========================================= */
 .carousel {
