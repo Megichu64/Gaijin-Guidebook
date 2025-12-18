@@ -43,11 +43,41 @@ if (amountInput) {
     amountInput.addEventListener('input', convert);
 }
 
-// --- 2. AUDIO LOGIC ---
-function playAudio(phrase) {
-    console.log("User clicked play for:", phrase);
-    alert("Playing audio for: " + phrase + " (Connect actual MP3 files in the code!)");
-}
+// --- 2. AUDIO LOGIC (UPDATED) ---
+// Now supports playing real audio from data attributes
+const playButtons = document.querySelectorAll('.play-btn');
+
+playButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const audioSrc = btn.getAttribute('data-audio');
+        
+        if (!audioSrc) {
+            alert("Audio file coming soon! (Link not yet added to code)");
+            return;
+        }
+
+        const audio = new Audio(audioSrc);
+        
+        // Add a visual indicator that it's playing
+        const icon = btn.querySelector('i');
+        const originalIcon = icon.className;
+        
+        icon.className = "fas fa-spinner fa-spin"; // Loading spinner
+        
+        audio.play().then(() => {
+            // Playing successfully
+            icon.className = "fas fa-volume-up";
+        }).catch(err => {
+            console.error("Audio playback failed:", err);
+            alert("Could not play audio. Check internet connection or URL.");
+            icon.className = originalIcon;
+        });
+
+        audio.onended = () => {
+            icon.className = originalIcon; // Reset icon when done
+        };
+    });
+});
 
 // --- 3. SCROLL TO TOP LOGIC ---
 const mybutton = document.getElementById("scrollToTopBtn");
