@@ -43,35 +43,7 @@ if (amountInput) {
     amountInput.addEventListener('input', convert);
 }
 
-// --- 2. AUDIO LOGIC (UPDATED) ---
-document.addEventListener('DOMContentLoaded', () => {
-    const playButtons = document.querySelectorAll('.play-btn');
-
-    playButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // 1. Get the Japanese text from the button
-            const textToSpeak = button.getAttribute('data-say');
-
-            if (textToSpeak) {
-                // 2. Create a specific "utterance" (speech request)
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                
-                // 3. Set the language to Japanese
-                utterance.lang = 'ja-JP'; 
-                
-                // 4. Optional: Slow it down slightly for beginners (0.8 is good)
-                utterance.rate = 0.9; 
-
-                // 5. Speak!
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert("No text found to speak!");
-            }
-        });
-    });
-});
-
-// --- 3. SCROLL TO TOP LOGIC ---
+// --- 2. SCROLL TO TOP LOGIC ---
 const mybutton = document.getElementById("scrollToTopBtn");
 if (mybutton) {
     window.onscroll = function() {scrollFunction()};
@@ -87,7 +59,7 @@ if (mybutton) {
     });
 }
 
-// --- 4. DARK MODE TOGGLE LOGIC ---
+// --- 3. DARK MODE TOGGLE LOGIC ---
 const toggleButton = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -111,7 +83,7 @@ if (toggleButton) {
     });
 }
 
-// --- 5. BLOG FILTER LOGIC ---
+// --- 4. BLOG FILTER LOGIC ---
 const filterButtons = document.querySelectorAll('.filter-btn');
 const timelineItems = document.querySelectorAll('.timeline-container');
 
@@ -136,7 +108,7 @@ if (filterButtons.length > 0) {
     });
 }
 
-// --- 6. SAVED PHRASES (LOCAL STORAGE) ---
+// --- 5. SAVED PHRASES (LOCAL STORAGE) ---
 document.addEventListener('DOMContentLoaded', () => {
     const notebookContainer = document.getElementById('notebook-container');
     const savedList = document.getElementById('saved-list');
@@ -185,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- 7. JR PASS CALCULATOR LOGIC ---
+// --- 6. JR PASS CALCULATOR LOGIC ---
 function calculateJRPass() {
     const checkboxes = document.querySelectorAll('.calc-row input[type="checkbox"]');
     let totalCost = 0;
@@ -226,7 +198,7 @@ function calculateJRPass() {
     }
 }
 
-// --- 8. TRAVEL CHECKLIST LOGIC ---
+// --- 7. TRAVEL CHECKLIST LOGIC ---
 const checklistContainer = document.querySelector('.checklist-container');
 if (checklistContainer) {
     const checklistBoxes = checklistContainer.querySelectorAll('input[type="checkbox"]');
@@ -252,7 +224,7 @@ if (checklistContainer) {
     }
 }
 
-// --- 9. HOMEPAGE CAROUSEL LOGIC ---
+// --- 8. HOMEPAGE CAROUSEL LOGIC ---
 const track = document.querySelector('.carousel-track');
 if (track) {
     const slides = Array.from(track.children);
@@ -289,7 +261,7 @@ if (track) {
     });
 }
 
-// --- 10. LIGHTBOX LOGIC (Fixed to prevent crashing on other pages) ---
+// --- 9. LIGHTBOX LOGIC (Fixed to prevent crashing on other pages) ---
 const lightbox = document.getElementById('lightbox');
 
 // Only run this if the lightbox actually exists on the page
@@ -318,7 +290,7 @@ if (lightbox) {
     });
 }
 
-// --- 11. ACCORDION LOGIC FOR CHECKLIST ITEMS ---
+// --- 10. ACCORDION LOGIC FOR CHECKLIST ITEMS ---
 document.addEventListener("DOMContentLoaded", function() {
     const toggleButtons = document.querySelectorAll('.toggle-btn');
     if (toggleButtons.length > 0) {
