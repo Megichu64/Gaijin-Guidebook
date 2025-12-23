@@ -44,38 +44,30 @@ if (amountInput) {
 }
 
 // --- 2. AUDIO LOGIC (UPDATED) ---
-// --- 2. AUDIO LOGIC (UPDATED) ---
-const playButtons = document.querySelectorAll('.play-btn');
+document.addEventListener('DOMContentLoaded', () => {
+    const playButtons = document.querySelectorAll('.play-btn');
 
-playButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const audioSrc = btn.getAttribute('data-audio');
-        
-        // Check if the link is empty OR if it's a "Page" link instead of a "File" link
-        if (!audioSrc || audioSrc.includes('wiki/File:')) {
-            alert("Error: This is a webpage link, not an audio file link! Please right-click 'Original File' on Wikimedia and copy that address.");
-            return;
-        }
+    playButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. Get the Japanese text from the button
+            const textToSpeak = button.getAttribute('data-say');
 
-        const audio = new Audio(audioSrc);
-        
-        // Visual feedback (change icon to spinner)
-        const icon = btn.querySelector('i');
-        const originalIcon = icon.className;
-        icon.className = "fas fa-spinner fa-spin"; 
-        
-        audio.play().then(() => {
-            // Success!
-            icon.className = "fas fa-volume-up";
-        }).catch(err => {
-            console.error("Playback failed:", err);
-            alert("Could not play. Check the URL!");
-            icon.className = originalIcon;
+            if (textToSpeak) {
+                // 2. Create a specific "utterance" (speech request)
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                
+                // 3. Set the language to Japanese
+                utterance.lang = 'ja-JP'; 
+                
+                // 4. Optional: Slow it down slightly for beginners (0.8 is good)
+                utterance.rate = 0.9; 
+
+                // 5. Speak!
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("No text found to speak!");
+            }
         });
-
-        audio.onended = () => {
-            icon.className = originalIcon; // Reset icon when done
-        };
     });
 });
 
