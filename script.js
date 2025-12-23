@@ -44,32 +44,32 @@ if (amountInput) {
 }
 
 // --- 2. AUDIO LOGIC (UPDATED) ---
-// Now supports playing real audio from data attributes
+// --- 2. AUDIO LOGIC (UPDATED) ---
 const playButtons = document.querySelectorAll('.play-btn');
 
 playButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const audioSrc = btn.getAttribute('data-audio');
         
-        if (!audioSrc) {
-            alert("Audio file coming soon! (Link not yet added to code)");
+        // Check if the link is empty OR if it's a "Page" link instead of a "File" link
+        if (!audioSrc || audioSrc.includes('wiki/File:')) {
+            alert("Error: This is a webpage link, not an audio file link! Please right-click 'Original File' on Wikimedia and copy that address.");
             return;
         }
 
         const audio = new Audio(audioSrc);
         
-        // Add a visual indicator that it's playing
+        // Visual feedback (change icon to spinner)
         const icon = btn.querySelector('i');
         const originalIcon = icon.className;
-        
-        icon.className = "fas fa-spinner fa-spin"; // Loading spinner
+        icon.className = "fas fa-spinner fa-spin"; 
         
         audio.play().then(() => {
-            // Playing successfully
+            // Success!
             icon.className = "fas fa-volume-up";
         }).catch(err => {
-            console.error("Audio playback failed:", err);
-            alert("Could not play audio. Check internet connection or URL.");
+            console.error("Playback failed:", err);
+            alert("Could not play. Check the URL!");
             icon.className = originalIcon;
         });
 
