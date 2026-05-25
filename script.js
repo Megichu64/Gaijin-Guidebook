@@ -303,3 +303,29 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// --- 11. INTERACTIVE JAPAN ---
+document.addEventListener('DOMContentLoaded', () => {
+  const regionButtons = document.querySelectorAll('.region-btn');
+  const infoPanel = document.getElementById('region-info');
+
+  regionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      regionButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to the clicked button
+      button.classList.add('active');
+
+      // Get data from the clicked button
+      const regionName = button.getAttribute('data-region');
+      const cities = button.getAttribute('data-cities');
+
+      // Update the info panel
+      infoPanel.innerHTML = `
+        <h3>${regionName}</h3>
+        <p><strong>Major Cities:</strong> ${cities}</p>
+      `;
+    });
+  });
+});
